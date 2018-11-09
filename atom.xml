@@ -3,11 +3,11 @@
   <title>浮梦之殇</title>
   
   
-  <link href="/it233/atom.xml" rel="self"/>
+  <link href="/it233.github.io/atom.xml" rel="self"/>
   
-  <link href="https://it233.github.io.com/"/>
+  <link href="http://it233.github.io.com/"/>
   <updated>2018-11-09T02:19:51.047Z</updated>
-  <id>https://it233.github.io.com/</id>
+  <id>http://it233.github.io.com/</id>
   
   <author>
     <name>漠</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test</title>
-    <link href="https://it233.github.io.com/2018/11/09/test/"/>
-    <id>https://it233.github.io.com/2018/11/09/test/</id>
+    <link href="http://it233.github.io.com/2018/11/09/test/"/>
+    <id>http://it233.github.io.com/2018/11/09/test/</id>
     <published>2018-11-09T02:15:13.000Z</published>
     <updated>2018-11-09T02:19:51.047Z</updated>
     
@@ -27,15 +27,15 @@
     
     </summary>
     
-      <category term="java" scheme="https://it233.github.io.com/categories/java/"/>
+      <category term="java" scheme="http://it233.github.io.com/categories/java/"/>
     
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://it233.github.io.com/2018/11/09/hello-world/"/>
-    <id>https://it233.github.io.com/2018/11/09/hello-world/</id>
+    <link href="http://it233.github.io.com/2018/11/09/hello-world/"/>
+    <id>http://it233.github.io.com/2018/11/09/hello-world/</id>
     <published>2018-11-09T01:13:49.614Z</published>
     <updated>2018-11-09T01:13:49.617Z</updated>
     

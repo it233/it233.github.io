@@ -5,9 +5,9 @@
   
   <link href="/it233.github.io/atom.xml" rel="self"/>
   
-  <link href="https://it233.github.io.com/"/>
+  <link href="https://it233.github.io/"/>
   <updated>2018-11-09T07:55:59.946Z</updated>
-  <id>https://it233.github.io.com/</id>
+  <id>https://it233.github.io/</id>
   
   <author>
     <name>漠</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test</title>
-    <link href="https://it233.github.io.com/2018/11/09/test/"/>
-    <id>https://it233.github.io.com/2018/11/09/test/</id>
+    <link href="https://it233.github.io/2018/11/09/test/"/>
+    <id>https://it233.github.io/2018/11/09/test/</id>
     <published>2018-11-09T07:53:50.000Z</published>
     <updated>2018-11-09T07:55:59.946Z</updated>
     
@@ -36,17 +36,17 @@
     
     </summary>
     
-      <category term="其他" scheme="https://it233.github.io.com/categories/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="https://it233.github.io/categories/%E5%85%B6%E4%BB%96/"/>
     
     
-      <category term="其他" scheme="https://it233.github.io.com/tags/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="https://it233.github.io/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://it233.github.io.com/2018/11/09/hello-world/"/>
-    <id>https://it233.github.io.com/2018/11/09/hello-world/</id>
+    <link href="https://it233.github.io/2018/11/09/hello-world/"/>
+    <id>https://it233.github.io/2018/11/09/hello-world/</id>
     <published>2018-11-09T01:13:49.614Z</published>
     <updated>2018-11-09T07:30:41.525Z</updated>
     
@@ -61,10 +61,10 @@
     
     </summary>
     
-      <category term="其他" scheme="https://it233.github.io.com/categories/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="https://it233.github.io/categories/%E5%85%B6%E4%BB%96/"/>
     
     
-      <category term="其他" scheme="https://it233.github.io.com/tags/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="https://it233.github.io/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   

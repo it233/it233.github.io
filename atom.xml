@@ -6,7 +6,7 @@
   <link href="/it233.github.io/atom.xml" rel="self"/>
   
   <link href="https://it233.github.io.com/"/>
-  <updated>2018-11-09T02:19:51.047Z</updated>
+  <updated>2018-11-09T07:03:30.836Z</updated>
   <id>https://it233.github.io.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test2</title>
+    <link href="https://it233.github.io.com/2018/11/09/test2/"/>
+    <id>https://it233.github.io.com/2018/11/09/test2/</id>
+    <published>2018-11-09T06:59:03.000Z</published>
+    <updated>2018-11-09T07:03:30.836Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="html" scheme="https://it233.github.io.com/categories/html/"/>
+    
+    
+      <category term="css,html" scheme="https://it233.github.io.com/tags/css-html/"/>
+    
+  </entry>
   
   <entry>
     <title>test</title>

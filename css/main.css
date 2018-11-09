@@ -1969,7 +1969,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d9b899;
+  background: #3eff28;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3062,7 +3062,7 @@ body {
 #background-image-div {
   width: 100%;
   height: 100%;
-  background-image: url("../../images/bg1.gif");
+  background-image: url("../images/bg1.gif");
   opacity: 0.1;
   z-index: -1;
   position: fixed;

@@ -6,7 +6,7 @@
   <link href="/it233.github.io/atom.xml" rel="self"/>
   
   <link href="https://it233.github.io/"/>
-  <updated>2018-11-09T08:25:04.510Z</updated>
+  <updated>2018-11-09T08:26:39.462Z</updated>
   <id>https://it233.github.io/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="https://it233.github.io/2018/11/09/test/"/>
     <id>https://it233.github.io/2018/11/09/test/</id>
     <published>2018-11-09T08:23:51.000Z</published>
-    <updated>2018-11-09T08:25:04.510Z</updated>
+    <updated>2018-11-09T08:26:39.462Z</updated>
     
-    <content type="html"><![CDATA[<p>![testimg(test.png)]</p>]]></content>
+    <content type="html"><![CDATA[<p>![testimg(test.png)]</p><img src="/2018/11/09/test/it233.github.io/2018/11/09/test/test.png">]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;![testimg(test.png)]&lt;/p&gt;
-
+&lt;img src=&quot;/2018/11/09/test/it233.github.io/2018/11/09/test/test.png&quot;&gt;
       
     
     </summary>

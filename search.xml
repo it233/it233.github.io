@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mysql建表时设置日期默认值及默认修改时间]]></title>
+    <url>%2Fit233.github.io%2F2018%2F11%2F12%2Fmysql%E5%BB%BA%E8%A1%A8%E6%97%B6%E8%AE%BE%E7%BD%AE%E6%97%A5%E6%9C%9F%E9%BB%98%E8%AE%A4%E5%80%BC%E5%8F%8A%E9%BB%98%E8%AE%A4%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%2F</url>
+    <content type="text"><![CDATA[#一、简单说明 在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。 很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，然后随着数据插入到表中进行保存。 下面，要说的是用mysql自带的方法来实现。（如果觉得没多大意义的话，请止步到此吧，如果想了解一下，请继续） #二、图文示例 这里使用的版本是MySQL 5.6 1.mysql的日期和时间类型 先来看一下mysql中的日期和时间类型，以及其值的样子]]></content>
+      <categories>
+        <category>DB</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>日期</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[test04]]></title>
+    <url>%2Fit233.github.io%2F2018%2F11%2F09%2Ftest04%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[test02]]></title>
+    <url>%2Fit233.github.io%2F2018%2F11%2F09%2Ftest02%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[test01]]></title>
+    <url>%2Fit233.github.io%2F2018%2F11%2F09%2Ftest01%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2Fit233.github.io%2F2018%2F11%2F09%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>

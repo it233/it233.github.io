@@ -6,7 +6,7 @@
   <link href="/it233.github.io/atom.xml" rel="self"/>
   
   <link href="https://it233.github.io/"/>
-  <updated>2018-11-09T07:30:41.525Z</updated>
+  <updated>2018-11-12T03:40:24.039Z</updated>
   <id>https://it233.github.io/</id>
   
   <author>
@@ -15,6 +15,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql建表时设置日期默认值及默认修改时间</title>
+    <link href="https://it233.github.io/2018/11/12/mysql%E5%BB%BA%E8%A1%A8%E6%97%B6%E8%AE%BE%E7%BD%AE%E6%97%A5%E6%9C%9F%E9%BB%98%E8%AE%A4%E5%80%BC%E5%8F%8A%E9%BB%98%E8%AE%A4%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4/"/>
+    <id>https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/</id>
+    <published>2018-11-12T03:10:06.000Z</published>
+    <updated>2018-11-12T03:40:24.039Z</updated>
+    
+    <content type="html"><![CDATA[<p>#一、简单说明<br>    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。</p><pre><code>关于这次记录的东西，就是mysql中时间格式的默认值。很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，然后随着数据插入到表中进行保存。下面，要说的是用mysql自带的方法来实现。（如果觉得没多大意义的话，请止步到此吧，如果想了解一下，请继续）</code></pre><p>#二、图文示例</p><pre><code>这里使用的版本是MySQL 5.6</code></pre><p>1.mysql的日期和时间类型</p><pre><code>先来看一下mysql中的日期和时间类型，以及其值的样子</code></pre><p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql日期和时间类型.png" alt="mysql的日期和时间类型"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#一、简单说明&lt;br&gt;    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;关于这次记录的东西，就是mysql中时间
+      
+    
+    </summary>
+    
+      <category term="DB" scheme="https://it233.github.io/categories/DB/"/>
+    
+      <category term="MySQL" scheme="https://it233.github.io/categories/DB/MySQL/"/>
+    
+    
+      <category term="mysql" scheme="https://it233.github.io/tags/mysql/"/>
+    
+      <category term="日期" scheme="https://it233.github.io/tags/%E6%97%A5%E6%9C%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test04</title>
+    <link href="https://it233.github.io/2018/11/09/test04/"/>
+    <id>https://it233.github.io/2018/11/09/test04/</id>
+    <published>2018-11-09T10:01:05.000Z</published>
+    <updated>2018-11-09T10:01:05.495Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>test02</title>
+    <link href="https://it233.github.io/2018/11/09/test02/"/>
+    <id>https://it233.github.io/2018/11/09/test02/</id>
+    <published>2018-11-09T09:56:34.000Z</published>
+    <updated>2018-11-09T09:56:34.379Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>test01</title>
+    <link href="https://it233.github.io/2018/11/09/test01/"/>
+    <id>https://it233.github.io/2018/11/09/test01/</id>
+    <published>2018-11-09T09:51:03.000Z</published>
+    <updated>2018-11-09T09:51:03.648Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>

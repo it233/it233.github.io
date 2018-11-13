@@ -88,7 +88,9 @@
 <meta property="og:description" content="#一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，然后">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql日期和时间类型.png">
-<meta property="og:updated_time" content="2018-11-12T03:40:24.039Z">
+<meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png">
+<meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png">
+<meta property="og:updated_time" content="2018-11-12T03:49:54.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql建表时设置日期默认值及默认修改时间">
 <meta name="twitter:description" content="#一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，然后">
@@ -342,7 +344,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-12T11:40:24+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-12T11:49:54+08:00">
                 2018-11-12
               </time>
             
@@ -422,10 +424,22 @@
 下面，要说的是用mysql自带的方法来实现。（如果觉得没多大意义的话，请止步到此吧，如果想了解一下，请继续）
 </code></pre><p>#二、图文示例</p>
 <pre><code>这里使用的版本是MySQL 5.6
-</code></pre><p>1.mysql的日期和时间类型</p>
+</code></pre><p>###1.mysql的日期和时间类型</p>
 <pre><code>先来看一下mysql中的日期和时间类型，以及其值的样子
 </code></pre><p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql日期和时间类型.png" alt="mysql的日期和时间类型"></p>
+<pre><code>- 在图中我们能够看到，我给所有的日期和时间类型赋值都是年/月/日 时:分:秒.毫秒
 
+- 而最终查询出来的日期格式如列表展示，不同的类型，格式也不同
+
+- 其中year类型只能赋值并保存年份，不过这个字段的赋值有点有意思的地方
+</code></pre><p>####1.1 year类型</p>
+<pre><code>我们先来看看不同的赋值的结果
+</code></pre><p>1.首先赋值0</p>
+<p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png" alt="mysql-year-0"></p>
+<p>2.然后1</p>
+<p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png" alt="mysql-year-0"></p>
+<pre><code>应该有人应该猜出来了吧,不过我很好奇的是，
+</code></pre>
       
     </div>
     
@@ -517,6 +531,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/" rel="prev" title="使用JPA创建原生sql(不使用实体类)">
+                使用JPA创建原生sql(不使用实体类) <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -585,7 +603,7 @@
               
                 <a href="/it233.github.io/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -596,7 +614,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/it233.github.io/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

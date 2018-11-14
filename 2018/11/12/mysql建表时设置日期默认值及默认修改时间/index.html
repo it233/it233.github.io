@@ -90,7 +90,14 @@
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql日期和时间类型.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png">
-<meta property="og:updated_time" content="2018-11-12T03:49:54.859Z">
+<meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog/it233/myBlog/source/_posts/mysql建表时设置日期默认值及默认修改时间.assets/mysql-year-69.png">
+<meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog/it233/myBlog/source/_posts/mysql建表时设置日期默认值及默认修改时间.assets/mysql-year-70.png">
+<meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog/it233/myBlog/source/_posts/mysql建表时设置日期默认值及默认修改时间.assets/mysql-time-maxvalue.png">
+<meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog/it233/myBlog/source/_posts/mysql建表时设置日期默认值及默认修改时间.assets/mysql-default-now.png">
+<meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog/it233/myBlog/source/_posts/mysql建表时设置日期默认值及默认修改时间.assets/mysql-default-cur.png">
+<meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog/it233/myBlog/source/_posts/mysql建表时设置日期默认值及默认修改时间.assets/default-update-insert.png">
+<meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog/it233/myBlog/source/_posts/mysql建表时设置日期默认值及默认修改时间.assets/default-update.png">
+<meta property="og:updated_time" content="2018-11-14T09:48:45.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql建表时设置日期默认值及默认修改时间">
 <meta name="twitter:description" content="#一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，然后">
@@ -344,8 +351,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-12T11:49:54+08:00">
-                2018-11-12
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-14T17:48:45+08:00">
+                2018-11-14
               </time>
             
           </span>
@@ -424,7 +431,7 @@
 下面，要说的是用mysql自带的方法来实现。（如果觉得没多大意义的话，请止步到此吧，如果想了解一下，请继续）
 </code></pre><p>#二、图文示例</p>
 <pre><code>这里使用的版本是MySQL 5.6
-</code></pre><p>###1.mysql的日期和时间类型</p>
+</code></pre><p>###1.mysql的日期和时间类型（这里会展示一下各种时间格式，不想看的跳过）</p>
 <pre><code>先来看一下mysql中的日期和时间类型，以及其值的样子
 </code></pre><p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql日期和时间类型.png" alt="mysql的日期和时间类型"></p>
 <pre><code>- 在图中我们能够看到，我给所有的日期和时间类型赋值都是年/月/日 时:分:秒.毫秒
@@ -438,8 +445,29 @@
 <p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png" alt="mysql-year-0"></p>
 <p>2.然后1</p>
 <p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png" alt="mysql-year-0"></p>
-<pre><code>应该有人应该猜出来了吧,不过我很好奇的是，
-</code></pre>
+<pre><code>应该有人应该猜出来了吧,不过我很好奇的是，这个赋值到底范围是多少，于是在这个过程中又遇到了有趣的事情
+</code></pre><p>3.然后：</p>
+<p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog\it233\myBlog\source\_posts\mysql建表时设置日期默认值及默认修改时间.assets/mysql-year-69.png" alt="mysql-year-69.png"></p>
+<p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog\it233\myBlog\source\_posts\mysql建表时设置日期默认值及默认修改时间.assets/mysql-year-70.png" alt="mysql-year-70.png"></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">到这里就能看出来，mysql日期虽然年份能够不用写完整的<span class="number">4</span>位，但是对于只写两位数，mysql中还是有点范围的<span class="number">70</span>表示<span class="number">1970</span>，而<span class="number">0</span>表示的是<span class="number">2000</span>，很显然，最多就是<span class="number">99</span>表示<span class="number">1999</span>了，然后从<span class="number">1</span><span class="number">-69</span>表示的是<span class="number">2001</span><span class="number">-2069</span>，所以mysql非完整的年份默认值范围<span class="number">0</span><span class="number">-99</span></span><br></pre></td></tr></table></figure>
+<p>4.完整年份最大值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不要问我怎么来的，我无聊</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog\it233\myBlog\source\_posts\mysql建表时设置日期默认值及默认修改时间.assets/mysql-time-maxvalue.png" alt="mysql-time-maxvalue.png"></p>
+<p>###2.正题：设置默认时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个设置是创建该数据的当前时间</span><br></pre></td></tr></table></figure>
+<p>1.使用函数now()</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql中有函数可以在sql语句中直接使用（废话不解释了），<span class="built_in">now</span>()都不陌生</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog\it233\myBlog\source\_posts\mysql建表时设置日期默认值及默认修改时间.assets/mysql-default-now.png" alt="mysql-default-now.png"></p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不过支持<span class="built_in">now</span>()函数的只有datetime和timestamp两种类型，其他三种都不支持</span><br></pre></td></tr></table></figure>
+<p>2.current_（cur系列）</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我们可以利用<span class="keyword">default</span> current_timestamp为timestamp类型的设置默认值</span><br><span class="line"></span><br><span class="line">不过很无奈的是，mysql中有current_date和current_time等，但是我这个版本却不能用，</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog\it233\myBlog\source\_posts\mysql建表时设置日期默认值及默认修改时间.assets/mysql-default-cur.png" alt="cur.png"></p>
+<p>3.自动记录修改时间</p>
+<p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog\it233\myBlog\source\_posts\mysql建表时设置日期默认值及默认修改时间.assets/default-update-insert.png" alt="default-update-insert.png"></p>
+<p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/D:/Blog\it233\myBlog\source\_posts\mysql建表时设置日期默认值及默认修改时间.assets/default-update.png" alt="default-update.png"></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在这里能够看到，<span class="built_in">id</span>为<span class="number">1</span>的这条数据时间变成了执行update时候的时间</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于前两天接了新项目，所以写了一半就停下来了，今天有点时间，想着就写完它。勉强看，也算给自己昨个记录</span><br></pre></td></tr></table></figure>
+
       
     </div>
     

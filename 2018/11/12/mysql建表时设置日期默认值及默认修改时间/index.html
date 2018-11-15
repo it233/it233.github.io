@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="#一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，然后">
+<meta name="description" content="[TOC] #一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前">
 <meta name="keywords" content="mysql,日期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql建表时设置日期默认值及默认修改时间">
 <meta property="og:url" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/index.html">
 <meta property="og:site_name" content="浮梦之殇">
-<meta property="og:description" content="#一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，然后">
+<meta property="og:description" content="[TOC] #一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql日期和时间类型.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png">
@@ -97,10 +97,10 @@
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql建表时设置日期默认值及默认修改时间.assets/mysql-default-cur.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql建表时设置日期默认值及默认修改时间.assets/default-update-insert.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql建表时设置日期默认值及默认修改时间.assets/default-update.png">
-<meta property="og:updated_time" content="2018-11-14T09:52:45.081Z">
+<meta property="og:updated_time" content="2018-11-15T09:32:08.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql建表时设置日期默认值及默认修改时间">
-<meta name="twitter:description" content="#一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，然后">
+<meta name="twitter:description" content="[TOC] #一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前">
 <meta name="twitter:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql日期和时间类型.png">
 
 
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-14T17:52:45+08:00">
-                2018-11-14
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-15T17:32:08+08:00">
+                2018-11-15
               </time>
             
           </span>
@@ -427,7 +427,8 @@
       
 
       
-        <p>#一、简单说明<br>    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。</p>
+        <p>[TOC]</p>
+<p>#一、简单说明<br>    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。</p>
 <pre><code>关于这次记录的东西，就是mysql中时间格式的默认值。
 
 很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，然后随着数据插入到表中进行保存。

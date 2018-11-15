@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="#一、描述  JPA很强大，嗯，没错，是很强大！  它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并且每个">
+<meta name="description" content="[TOC] #一、描述  JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据">
 <meta name="keywords" content="实录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用JPA创建原生sql(不使用实体类)">
 <meta property="og:url" content="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/index.html">
 <meta property="og:site_name" content="浮梦之殇">
-<meta property="og:description" content="#一、描述  JPA很强大，嗯，没错，是很强大！  它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并且每个">
+<meta property="og:description" content="[TOC] #一、描述  JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/1.png">
-<meta property="og:updated_time" content="2018-11-13T06:53:51.701Z">
+<meta property="og:updated_time" content="2018-11-15T09:32:43.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用JPA创建原生sql(不使用实体类)">
-<meta name="twitter:description" content="#一、描述  JPA很强大，嗯，没错，是很强大！  它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并且每个">
+<meta name="twitter:description" content="[TOC] #一、描述  JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据">
 <meta name="twitter:image" content="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/1.png">
 
 
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-13T14:53:51+08:00">
-                2018-11-13
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-15T17:32:43+08:00">
+                2018-11-15
               </time>
             
           </span>
@@ -429,12 +429,12 @@
       
 
       
-        <p>#一、描述</p>
+        <p>[TOC]</p>
+<p>#一、描述</p>
 <ul>
 <li><p>JPA很强大，嗯，没错，是很强大！</p>
-</li>
-<li><p>它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。</p>
-</li>
+<pre><code>它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。
+</code></pre></li>
 <li><p>并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库</p>
 </li>
 <li><p>当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并且每个表中只有一到两个字段有用，而整张表的字段又很多，所以有时候就不需要将每个表都完整映射成实体类（不然的话，每次查询就要多查询很多无用的垃圾信息）</p>

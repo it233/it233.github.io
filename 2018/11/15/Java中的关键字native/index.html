@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="#一、简单介绍 native关键字  总所周知，java是跨平台的语言，既然跨平台，就要牺牲对底层的控制，所以java对于底层的控制就依赖于其他语言的帮助，而这就是native的作用  native是用作java和其他语言进行协作时用的，也就是native后的方法的实现不是用java写的。既然不是java写的，那肯定看不到它的源码了  native修饰的方法时一个原生态方法,方法对应的实现不是在当">
+<meta name="description" content="【笔记】标签，是对于以前做的一些笔记的回顾，同时还有新的学习。有可能有些地方已经遗漏了，也可能有些地方无法确证，甚至有的地方理解有误！  #一、简单介绍 native关键字  总所周知，java是跨平台的语言，既然跨平台，就要牺牲对底层的控制，所以java对于底层的控制就依赖于其他语言的帮助，而这就是native的作用  native是用作java和其他语言进行协作时用的，也就是native后的方">
 <meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的关键字native">
 <meta property="og:url" content="https://it233.github.io/2018/11/15/Java中的关键字native/index.html">
 <meta property="og:site_name" content="浮梦之殇">
-<meta property="og:description" content="#一、简单介绍 native关键字  总所周知，java是跨平台的语言，既然跨平台，就要牺牲对底层的控制，所以java对于底层的控制就依赖于其他语言的帮助，而这就是native的作用  native是用作java和其他语言进行协作时用的，也就是native后的方法的实现不是用java写的。既然不是java写的，那肯定看不到它的源码了  native修饰的方法时一个原生态方法,方法对应的实现不是在当">
+<meta property="og:description" content="【笔记】标签，是对于以前做的一些笔记的回顾，同时还有新的学习。有可能有些地方已经遗漏了，也可能有些地方无法确证，甚至有的地方理解有误！  #一、简单介绍 native关键字  总所周知，java是跨平台的语言，既然跨平台，就要牺牲对底层的控制，所以java对于底层的控制就依赖于其他语言的帮助，而这就是native的作用  native是用作java和其他语言进行协作时用的，也就是native后的方">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it233.github.io/2018/11/15/Java中的关键字native/Java中的关键字native.assets/cmd01.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/15/Java中的关键字native/Java中的关键字native.assets/files.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/15/Java中的关键字native/Java中的关键字native.assets/files5.png">
-<meta property="og:updated_time" content="2018-11-15T06:31:40.805Z">
+<meta property="og:updated_time" content="2018-11-15T06:45:43.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中的关键字native">
-<meta name="twitter:description" content="#一、简单介绍 native关键字  总所周知，java是跨平台的语言，既然跨平台，就要牺牲对底层的控制，所以java对于底层的控制就依赖于其他语言的帮助，而这就是native的作用  native是用作java和其他语言进行协作时用的，也就是native后的方法的实现不是用java写的。既然不是java写的，那肯定看不到它的源码了  native修饰的方法时一个原生态方法,方法对应的实现不是在当">
+<meta name="twitter:description" content="【笔记】标签，是对于以前做的一些笔记的回顾，同时还有新的学习。有可能有些地方已经遗漏了，也可能有些地方无法确证，甚至有的地方理解有误！  #一、简单介绍 native关键字  总所周知，java是跨平台的语言，既然跨平台，就要牺牲对底层的控制，所以java对于底层的控制就依赖于其他语言的帮助，而这就是native的作用  native是用作java和其他语言进行协作时用的，也就是native后的方">
 <meta name="twitter:image" content="https://it233.github.io/2018/11/15/Java中的关键字native/Java中的关键字native.assets/cmd01.png">
 
 
@@ -344,7 +344,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-15T14:31:40+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-15T14:45:43+08:00">
                 2018-11-15
               </time>
             
@@ -416,7 +416,9 @@
       
 
       
-        <p>#一、简单介绍</p>
+        <p>【笔记】标签，是对于以前做的一些笔记的回顾，同时还有新的学习。有可能有些地方已经遗漏了，也可能有些地方无法确证，甚至有的地方理解有误！</p>
+<hr>
+<p>#一、简单介绍</p>
 <p>native关键字</p>
 <ul>
 <li><p>总所周知，java是跨平台的语言，既然跨平台，就要牺牲对底层的控制，所以java对于底层的控制就依赖于其他语言的帮助，而这就是native的作用</p>
@@ -464,7 +466,15 @@
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">java HelloNative</span></span><br></pre></td></tr></table></figure>
 <p>说明：</p>
 <p>从gcc命令开始，没有图和真相了，那是因为我所有的笔记标签的文章都是回头看以前做的笔记的时候，重新整理记录一下，也有的是之前没有记录到的，整理的时候又重新学一遍；也有之前试验过但是现在环境不允许了。</p>
-<p>就像这篇文章，以前做的时候就稀里糊涂的，不明所以，就连步骤都是直接抄录别人的，也只是弄懂了java中native关键字是什么意思，后面调用c也一知半解！现在也顶多知道了怎么回事，但是c我一点也不懂，所以暂时就这样吧，凑合着看，然后多点空间自己研究，也是一种学习！</p>
+<p>不过又去了网上看了看帖子，别人的文章有的用的命令不一样，所以具体如何生成dll，尝试一下就行了，只要生成了dll就OK了</p>
+<p>#三、步骤总结：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总结一下步骤吧：</span><br></pre></td></tr></table></figure>
+<p>1 先创建java类，在类中加载需要的library，声明要调用的本地方法</p>
+<p>2  使用javac命令编译.java文件，生成字节码文件.class</p>
+<p>3  使用javah命令编译成.h文件，生成包含C声明头的文件</p>
+<p>4  编写c文件（.c），然后通过gcc命令(或者vs C++环境下cl命令)生成dll</p>
+<p>5  然后利用java命令运行Java代码检测是否成功</p>
+<p>其实，上面的这个步骤是反着来的，是因为我们从java介入，往底层找的，真正的顺序应该是先写好的c方法生成dll共享库，然后jvm启动之后留在本地方法区中，随着我们写好java代码之后，如果需要用到本地方法，我们就去找相应的方法直接调用就行了(这部分可以简单看一下jvm方面的知识应该比较容易理解，好了，我再看看jvm的笔记)。</p>
 
       
     </div>

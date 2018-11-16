@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="[TOC] #一、描述  JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据">
+<meta name="description" content="[TOC] 一、描述 JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并">
 <meta name="keywords" content="实录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用JPA创建原生sql(不使用实体类)">
 <meta property="og:url" content="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/index.html">
 <meta property="og:site_name" content="浮梦之殇">
-<meta property="og:description" content="[TOC] #一、描述  JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据">
+<meta property="og:description" content="[TOC] 一、描述 JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/1.png">
-<meta property="og:updated_time" content="2018-11-16T02:23:04.500Z">
+<meta property="og:updated_time" content="2018-11-16T02:25:18.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用JPA创建原生sql(不使用实体类)">
-<meta name="twitter:description" content="[TOC] #一、描述  JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据">
+<meta name="twitter:description" content="[TOC] 一、描述 JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并">
 <meta name="twitter:image" content="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/1.png">
 
 
@@ -346,7 +346,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T10:23:04+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T10:25:18+08:00">
                 2018-11-16
               </time>
             
@@ -430,8 +430,7 @@
 
       
         <p>[TOC]</p>
-<p>#一、描述</p>
-<ul>
+<h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><ul>
 <li><p>JPA很强大，嗯，没错，是很强大！</p>
 <pre><code>它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。
 </code></pre></li>
@@ -442,8 +441,8 @@
 <li><p>今天遇到了这种场景，由于是多表联查，但是只需要其中各一个字段，其余的每个表十几个字段都没用。所以就不需要把每张表的数据都查询出来。而个人对于jpa也不熟练，所以踩了很多坑。下面就此记录：</p>
 </li>
 </ul>
-<p>#二、实录<br>    （踩坑全过程，实力坑自己！Pain and happiness!想直接看结果，直接拉下去别看这段了）</p>
-<h3 id="想法1、"><a href="#想法1、" class="headerlink" title="想法1、"></a>想法1、</h3><p>返回map，不用实体类</p>
+<h1 id="二、实录"><a href="#二、实录" class="headerlink" title="二、实录"></a>二、实录</h1><pre><code>（踩坑全过程，实力坑自己！Pain and happiness!想直接看结果，直接拉下去别看这段了）
+</code></pre><h3 id="想法1、"><a href="#想法1、" class="headerlink" title="想法1、"></a>想法1、</h3><p>返回map，不用实体类</p>
 <p>1.dao层（Repository）</p>
 <ul>
 <li>就是控制sql语句对数据库进行增删改查。</li>
@@ -486,8 +485,7 @@
 尼玛，可怕！！！
 
 于是，果断放弃了从dao层入手。
-</code></pre><p>#三、解决方案</p>
-<ul>
+</code></pre><h1 id="三、解决方案"><a href="#三、解决方案" class="headerlink" title="三、解决方案"></a>三、解决方案</h1><ul>
 <li><p>JPA很强大，嗯，没错，是很强大！</p>
 <p>  又是这句话，没错，我们如果映射实体类的话，那么目前的情况就感觉无用数据太多，而且累赘，要映射好几张表<br>  但是别怕，jpa不但能面向对象查询，还支持原生sql，能够让我们根据自己的想法来实现</p>
 </li>
@@ -503,8 +501,7 @@
 <p>不过又见几个坑，是网上的帖子，代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Object os : list)&#123;</span><br><span class="line">	Map map = (Map)os;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我只求数组（实际上是Object类型的数组）强转Map这波操作！！！！没别的要求</p>
-<p>#四、</p>
-<pre><code>诙谐的话语，搞笑而又逗逼！就跟老朋友聊骚，听老朋友牢骚。轻松吗？
+<h1 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h1><pre><code>诙谐的话语，搞笑而又逗逼！就跟老朋友聊骚，听老朋友牢骚。轻松吗？
 </code></pre>
       
     </div>
@@ -738,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#想法1、"><span class="nav-text">想法1、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想法2、"><span class="nav-text">想法2、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想法3、"><span class="nav-text">想法3、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想法4、"><span class="nav-text">想法4、</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、描述"><span class="nav-text">一、描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、实录"><span class="nav-text">二、实录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#想法1、"><span class="nav-text">想法1、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想法2、"><span class="nav-text">想法2、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想法3、"><span class="nav-text">想法3、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想法4、"><span class="nav-text">想法4、</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#三、解决方案"><span class="nav-text">三、解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、"><span class="nav-text">四、</span></a></li></div>
             
 
           </div>

@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="[TOC] 一、描述 JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并">
+<meta name="description" content="一、前言 朋友遇到的情况，属于前端的问题，是需要打开摄像头来拍照，关于这个问题，他找到了我让我来帮他解决，不过由于我的前端也是属于那种半吊子水平，所以在过程中也是参考了网上的不少资料和案例，不过还好的是因此也了解了不少知识，所以准备整理一下，做个记录 这篇主要是前端canvas画布功能，可能知识不够全面，但是要实现拍照画图应该是没问题了 除了参照图像资源进行利用canvas画图之外，canvas还">
 <meta name="keywords" content="实录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用JPA创建原生sql(不使用实体类)">
-<meta property="og:url" content="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/index.html">
+<meta property="og:title" content="前端画图Canvas简单运用">
+<meta property="og:url" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/index.html">
 <meta property="og:site_name" content="浮梦之殇">
-<meta property="og:description" content="[TOC] 一、描述 JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并">
+<meta property="og:description" content="一、前言 朋友遇到的情况，属于前端的问题，是需要打开摄像头来拍照，关于这个问题，他找到了我让我来帮他解决，不过由于我的前端也是属于那种半吊子水平，所以在过程中也是参考了网上的不少资料和案例，不过还好的是因此也了解了不少知识，所以准备整理一下，做个记录 这篇主要是前端canvas画布功能，可能知识不够全面，但是要实现拍照画图应该是没问题了 除了参照图像资源进行利用canvas画图之外，canvas还">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/1.png">
-<meta property="og:updated_time" content="2018-11-16T02:25:18.822Z">
+<meta property="og:updated_time" content="2018-11-19T10:02:30.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用JPA创建原生sql(不使用实体类)">
-<meta name="twitter:description" content="[TOC] 一、描述 JPA很强大，嗯，没错，是很强大！ 它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。  并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库  当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并">
-<meta name="twitter:image" content="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/1.png">
+<meta name="twitter:title" content="前端画图Canvas简单运用">
+<meta name="twitter:description" content="一、前言 朋友遇到的情况，属于前端的问题，是需要打开摄像头来拍照，关于这个问题，他找到了我让我来帮他解决，不过由于我的前端也是属于那种半吊子水平，所以在过程中也是参考了网上的不少资料和案例，不过还好的是因此也了解了不少知识，所以准备整理一下，做个记录 这篇主要是前端canvas画布功能，可能知识不够全面，但是要实现拍照画图应该是没问题了 除了参照图像资源进行利用canvas画图之外，canvas还">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/">
+  <link rel="canonical" href="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/">
 
 
 
 
 
-  <title>使用JPA创建原生sql(不使用实体类) | 浮梦之殇</title>
+  <title>前端画图Canvas简单运用 | 浮梦之殇</title>
   
 
 
@@ -301,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://it233.github.io/it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/">
+    <link itemprop="mainEntityOfPage" href="https://it233.github.io/it233.github.io/2018/11/19/前端画图Canvas简单运用/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="漠">
@@ -318,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用JPA创建原生sql(不使用实体类)</h1>
+          <h1 class="post-title" itemprop="name headline">前端画图Canvas简单运用</h1>
         
 
         <div class="post-meta">
@@ -330,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-13T13:19:38+08:00">
-                2018-11-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T16:40:30+08:00">
+                2018-11-19
               </time>
             
 
@@ -346,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T10:25:18+08:00">
-                2018-11-16
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-19T18:02:30+08:00">
+                2018-11-19
               </time>
             
           </span>
@@ -365,8 +363,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/it233.github.io/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/it233.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -376,19 +374,8 @@
                 
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/it233.github.io/categories/java/框架/" itemprop="url" rel="index">
-                    <span itemprop="name">框架</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/it233.github.io/categories/java/框架/JPA/" itemprop="url" rel="index">
-                    <span itemprop="name">JPA</span>
+                  <a href="/it233.github.io/categories/前端/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
                   </a>
                 </span>
 
@@ -429,80 +416,82 @@
       
 
       
-        <p>[TOC]</p>
-<h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><ul>
-<li><p>JPA很强大，嗯，没错，是很强大！</p>
-<pre><code>它是通过JDK5.0注解或者XML描述对象-关系表的映射关系，并能够将在运行中的实体对象持久化到数据库中。
-</code></pre></li>
-<li><p>并且它也是面向对象查询，也就是将实体类与数据库的表映射，即使不会数据库的开发者，只要能看懂java的类，只要能熟练使用jpa，也能很便捷地操作数据库</p>
-</li>
-<li><p>当然，映射类有其好处，也有弊端。假如说，某个场景下，我需要查询多个表中的数据，并且每个表中只有一到两个字段有用，而整张表的字段又很多，所以有时候就不需要将每个表都完整映射成实体类（不然的话，每次查询就要多查询很多无用的垃圾信息）</p>
-</li>
-<li><p>今天遇到了这种场景，由于是多表联查，但是只需要其中各一个字段，其余的每个表十几个字段都没用。所以就不需要把每张表的数据都查询出来。而个人对于jpa也不熟练，所以踩了很多坑。下面就此记录：</p>
+        <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><ul>
+<li>朋友遇到的情况，属于前端的问题，是需要打开摄像头来拍照，关于这个问题，他找到了我让我来帮他解决，不过由于我的前端也是属于那种半吊子水平，所以在过程中也是参考了网上的不少资料和案例，不过还好的是因此也了解了不少知识，所以准备整理一下，做个记录</li>
+<li>这篇主要是前端canvas画布功能，可能知识不够全面，但是要实现拍照画图应该是没问题了</li>
+<li>除了参照图像资源进行利用canvas画图之外，canvas还有很多功能提供，方便我们直接在页面上进行手工绘画，这些功能这里就不展示了，因为我也忘记了，只是之前刚学前端的时候有捣弄过，不过现在主要做后台开发，所以前端水平就一般般</li>
+</ul>
+<h1 id="二、画图"><a href="#二、画图" class="headerlink" title="二、画图"></a>二、画图</h1><ul>
+<li>在实现拍照之前，先来详细了解一下canvas画图功能，这样对于后面拍照会更简单一点</li>
+</ul>
+<h2 id="页面准备"><a href="#页面准备" class="headerlink" title="页面准备"></a>页面准备</h2><ul>
+<li>实现canvas画图功能，我们需要准备一张图片，为了试验效果，我就随便截了一张桌面的图片</li>
+<li>在页面中我们要放置一张图片(当然，也可以不用展示在页面上，这个js代码中会扩展)，所以需要img标签元素</li>
+<li>想要进行在页面画图，我们还要通过canvas标签元素获得context(简称，后面展示全部)来帮我们实现这个功能</li>
+<li>然后，为了进行测试，我们加一个按钮，当点击按钮的时候，我们将展示的图片画出来</li>
+</ul>
+<h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h2><ul>
+<li><p>我们需要的html代码很简单，只有三个元素：img、canvas、button</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"../imgs/0.png"</span> <span class="attr">id</span>=<span class="string">"img"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">height</span>=<span class="string">"400"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">id</span>=<span class="string">"canvas1"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid gray"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"ckbtn"</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="二、实录"><a href="#二、实录" class="headerlink" title="二、实录"></a>二、实录</h1><pre><code>（踩坑全过程，实力坑自己！Pain and happiness!想直接看结果，直接拉下去别看这段了）
-</code></pre><h3 id="想法1、"><a href="#想法1、" class="headerlink" title="想法1、"></a>想法1、</h3><p>返回map，不用实体类</p>
-<p>1.dao层（Repository）</p>
+<h2 id="js代码及详解"><a href="#js代码及详解" class="headerlink" title="js代码及详解"></a>js代码及详解</h2><h3 id="简单分析"><a href="#简单分析" class="headerlink" title="简单分析"></a>简单分析</h3><ul>
+<li>在上代码之前， 先来说一下流程</li>
+<li>我们想要参照img元素中的图片资源，利用canvas来将其画出来<ul>
+<li>那么首先我们就需要找到img元素中的图片，</li>
+<li>其次还要有canvas画图的对象，</li>
+<li>然后获得canvas的Context</li>
+<li>最后配置Context的环境将img图片画出来</li>
+</ul>
+</li>
+<li>总体简单来说就这四步，下面直接上代码，然后再解释：</li>
+</ul>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"ckbtn"</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">"img"</span>);</span><br><span class="line">        <span class="keyword">var</span> cv = <span class="built_in">document</span>.getElementById(<span class="string">'canvas1'</span>);</span><br><span class="line">        <span class="keyword">var</span> ct = cv.getContext(<span class="string">"2d"</span>);</span><br><span class="line">        ct.drawImage(img, <span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">400</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="js代码详细解释（以及踩过的坑和未踩过的坑）"><a href="#js代码详细解释（以及踩过的坑和未踩过的坑）" class="headerlink" title="js代码详细解释（以及踩过的坑和未踩过的坑）"></a>js代码详细解释（以及踩过的坑和未踩过的坑）</h3><ul>
+<li><p>注意点1、window.onload</p>
 <ul>
-<li>就是控制sql语句对数据库进行增删改查。</li>
-<li><p>这里的接口很容易写，只需要继承JpaRepository&lt;entity,object&gt;接口就可以了<br>#<br>  这里需要注意：<br>  1.entity，必须是被管理的类，也就是与数据库进行映射的实体类</p>
-<p>  所以，就坑在这了，一直报错说Repository什么什么类型必须是被映射管理的，而map却不是。奶奶的，继续想办法</p>
-<h3 id="想法2、"><a href="#想法2、" class="headerlink" title="想法2、"></a>想法2、</h3></li>
+<li>这个window.onload不用多解释，就是在页面加载完成之后再执行funciton中的这段代码</li>
+<li>为什么一定要这么做呢？</li>
+<li>那是因为我们现在使用的页面元素，如果没有这个onload保证页面先加载完成，有可能会出现这种情况：<ul>
+<li>canvas元素找不到，所以我们获取其dom对象的时候有可能会出现undefined</li>
+<li>如果canvas出现undefined的话，那么我们必然无法获得该画布下的Context，也就无法实现画图功能</li>
+<li>除此之外，运气好，我们canvas画布放的比较靠前，能够找得到，不过我们知道，图片属于外部静态资源，加载可能没有html原生代码块，这个时候，如果我们图片没有加载完成，也可能会出现画图失败<ul>
+<li>举个例子，假如有一个画家，他要为一个人画一幅像，但是不巧的是，这个人突然临时有事，不能准时到，那么在这个人还没有到达之前，这个画家怎么去画这幅画？他拿什么做参考呢？</li>
 </ul>
-<p>创建实体类（不过由于不懂，所以这里没有进行关系映射，就是一个单纯的javaBean，不用仔细说了失败！）</p>
-<p>​    注意：<br>    1.实体类必须与数据库映射才算被映射管理（@Entity注解）</p>
-<pre><code>继续尝试
-</code></pre><h3 id="想法3、"><a href="#想法3、" class="headerlink" title="想法3、"></a>想法3、</h3><p>映射实体类(但是这次也只写了部分字段，自己需要的)</p>
-<p>​    注意：</p>
+</li>
+<li>再者呢，我们又要绑定按钮，所以onload最好是加上</li>
+</ul>
+</li>
+<li>这里说了那么多，我们能够知道，如果我们看着代码没有错误，那么先去检查一下有没有报错，如果没有报错，那么很可能是图片没有加载完成，导致没法画出图片（之后还有一个可能的原因，在注意点2）</li>
+</ul>
+</li>
+<li><p>注意点2、canvas元素</p>
 <ul>
-<li>加上注解标明映射之后，又特么脑残踩了个雷（鄙视自己一秒钟）<ul>
-<li>对于这个，说一下吧，由于最初没打算映射，并且需要的数据是多个表的，所以类名就自己起的名字。好家伙，提示table_name没有被映射过！我嘞个擦。所以在@Entity注解加上name属性：</li>
-<li>@Entity(name=”table_name”)最初的时候加错了，写成实体类的名字了，尴尬！这里其实要写表的名字，表明该实体类与那张表映射</li>
+<li>这里要注意的是，我们所说的canvas画图，其实canvas只是一个画布,隐约记得曾经学的时候，好像还有画笔什么来着，记不清了，不纠结了、</li>
+<li>真正实现画图功能的，是画笔而不是画布，而之前说的Context，是一种环境，<ul>
+<li>这里打个比方，canvas是画布，就是画家使用的画板，就是我们要画出的画的容器</li>
+<li>那个画笔是什么来着，就是用来进行绘画的，之前说的能够手工绘画也是控制画笔在页面上进行绘画</li>
+<li>而context，是环境，就好比我们画家用画笔在画布上绘画所需要的因素，在这里我个人将它理解为了画家，因为context提供了画图很多方法来满足画图的需要。就像一个画家一样具备的能力</li>
+<li>这里简单展示一下context，关于context这个对象具体的代码有点多，有兴趣的可以自己研究</li>
 </ul>
 </li>
-<li>与数据库映射的类必须有@Id标明主键(失败一次！吼，不想解释了)</li>
-<li>这一点忍无可忍！错误信息说，表中为not null的字段，必须在实体类中映射！也就是实体类中必须有非空字段的属性！！！<ul>
-<li>吼吼吼！！我连吼三次可以了吧！那我跟映射全部字段有什么区别呢？还是初衷吗？</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getContext(<span class="string">contextId:</span> <span class="string">"2d"</span>, contextAttributes?: Canvas2DContextAttributes): CanvasRenderingContext2D | <span class="literal">null</span>;</span><br><span class="line">getContext(<span class="string">contextId:</span> <span class="string">"webgl"</span> | <span class="string">"experimental-webgl"</span>, contextAttributes?: WebGLContextAttributes): WebGLRenderingContext | <span class="literal">null</span>;</span><br><span class="line">getContext(<span class="string">contextId:</span> string, contextAttributes?: &#123;&#125;): CanvasRenderingContext2D | WebGLRenderingContext | <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里并不是很详细地解释了canvas，所以我们知道，canvas是容器，这里也会有一个小问题，不知道有没有人遇到过。（在做摄像头拍照的时候遇到了小问题，所以回头研究了canvas）<ul>
+<li>如果我们为了美观，不展示canvas来占空间，而设置为了display:none，那么会发生什么情况？</li>
+<li>另外，如果我们设置了canvas的长宽都为0，会是什么情况？</li>
 </ul>
 </li>
-<li>以上一环扣一环之后，想要按照之前想法，实体类，拜拜！</li>
-<li>经过以上绕的弯路，所以就又绕回来了。哼哼！于是乎：老子不用实体类了，也不继承JpaRepository。</li>
+<li>对于以上两点，在下面会案例展示结果，先猜一下吧</li>
 </ul>
-<h3 id="想法4、"><a href="#想法4、" class="headerlink" title="想法4、"></a>想法4、</h3><p>注解托管Repository！</p>
-<pre><code>奈斯！启动刚开始没报错，之前报错貌似跳过去了！突然之间，XXXXXX that could not be found，我真xxxx了，然后去网上找解决方法，要吐血！各种各样的方法，没用！直到我看到一个帖子：
-</code></pre><p><img src="/2018/11/13/使用JPA创建原生sql-不使用实体类/1.png" alt="帖子截图"></p>
-<pre><code>一口老血啊！果断不找了！
-（别学我，因为刚刚在找这个帖子的时候，无意间瞥见另一个帖子，
-解决方案是：在Application启动类中加上注解：@EnableJpaRepositories(&quot;com.example.repository&quot;)来说明要扫描的类，
-虽然之前也在启动类中加过注释，但我也记不清这个到底有没有尝试过了，
-感觉很靠谱，这里说一下！失败了也别来找我,也有可能环境不同）
+</li>
+<li></li>
+<li><p>​    </p>
+</li>
+</ul>
+<h1 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"../imgs/0.png"</span> <span class="attr">id</span>=<span class="string">"img"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">height</span>=<span class="string">"400"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">id</span>=<span class="string">"canvas1"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid gray"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"ckbtn"</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">"img"</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> cv = <span class="built_in">document</span>.getElementById(<span class="string">'canvas1'</span>);</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(cv)</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> ct = cv.getContext(<span class="string">"2d"</span>);</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(ct)</span></span><br><span class="line"><span class="undefined">        ct.drawImage(img, 0, 0, 200, 400);</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">"ckbtn"</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//下载图片</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// document.getElementById("saveBtn").addEventListener('click', function () &#123;</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     var ctx = document.getElementById('canvas1');</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     //获得图片的base64加密字符串</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     var imgdata = ctx.toDataURL("image/png", 1.0);</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     //下载图片的类型</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     var type = 'jpg'</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     // type = type.toLocaleLowerCase().replace(/jpg/i, 'jpeg');</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     // var r = type.match(/png|jpeg|bmp|gif/)[0];</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     // var rtype = 'image/' + r;</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     // imgdata = imgdata.replace(rtype, 'image/octet-stream')</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     // //设置文件名字，并生成a标签链接文件直接执行鼠标点击事件进行下载</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     var filename = new Date().toLocaleDateString() + '.' + type;</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     var link = document.createElement('a');</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     link.href = imgdata;</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     link.download = filename;</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     var event = document.createEvent('MouseEvents');</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//     link.dispatchEvent(event);</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// &#125;);</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-所以！这是一个死循环啊，想要用dao层Repository，OK的，继承JPARepository吧，
-等等，我jpa有条件的，entity呢？ 好，给你！
-慢着，我entity不干，先给cp一个数据库表吧，我可不打酱油的！唉，给你cp个表吧，
-停！cp随便你，但是我有孩子，得带过去，你去问问entity同不同意！
-尼玛，可怕！！！
-
-于是，果断放弃了从dao层入手。
-</code></pre><h1 id="三、解决方案"><a href="#三、解决方案" class="headerlink" title="三、解决方案"></a>三、解决方案</h1><ul>
-<li><p>JPA很强大，嗯，没错，是很强大！</p>
-<p>  又是这句话，没错，我们如果映射实体类的话，那么目前的情况就感觉无用数据太多，而且累赘，要映射好几张表<br>  但是别怕，jpa不但能面向对象查询，还支持原生sql，能够让我们根据自己的想法来实现</p>
-</li>
-<li><p>第一种：使用注解@Query(value=”sqlString”)</p>
-</li>
-<li><p>第二种：entityManager.createNativeQuery(sqlString)</p>
-<p>  第一种，注解在dao层的方法上，由于我自动装配出问题了，并且及早地放弃了，所以没用，</p>
-<p>  第二种，上代码</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Query query = entityManager.createNativeQuery(<span class="string">"select * from user where id = ?"</span>);</span><br><span class="line">query.setParameter(<span class="number">1</span>,<span class="string">"g10001"</span>);</span><br><span class="line">List list = query.getResultList();</span><br><span class="line">Map&lt;String,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">   map.put(<span class="string">"name1"</span>,objs.get(<span class="number">0</span>)[<span class="number">0</span>].toString());</span><br><span class="line">   map.put(<span class="string">"name2"</span>,objs.get(<span class="number">0</span>)[<span class="number">1</span>].toString());......</span><br></pre></td></tr></table></figure>
-<p>搞定！list是List&lt;Object[]&gt;类型，里面放的就是一条条数据，而Object[]数组里面是一条数据中的所有字段。</p>
-<p>不过又见几个坑，是网上的帖子，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Object os : list)&#123;</span><br><span class="line">	Map map = (Map)os;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我只求数组（实际上是Object类型的数组）强转Map这波操作！！！！没别的要求</p>
-<h1 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h1><pre><code>诙谐的话语，搞笑而又逗逼！就跟老朋友聊骚，听老朋友牢骚。轻松吗？
-</code></pre>
       
     </div>
     
@@ -554,7 +543,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/" title="使用JPA创建原生sql(不使用实体类)">https://it233.github.io/2018/11/13/使用JPA创建原生sql-不使用实体类/</a>
+    <a href="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/" title="前端画图Canvas简单运用">https://it233.github.io/2018/11/19/前端画图Canvas简单运用/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -582,8 +571,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/" rel="next" title="mysql建表时设置日期默认值及默认修改时间">
-                <i class="fa fa-chevron-left"></i> mysql建表时设置日期默认值及默认修改时间
+              <a href="/it233.github.io/2018/11/15/java详解jvm工作原理和流程/" rel="next" title="java详解jvm工作原理和流程">
+                <i class="fa fa-chevron-left"></i> java详解jvm工作原理和流程
               </a>
             
           </div>
@@ -591,10 +580,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/it233.github.io/2018/11/15/Java中的关键字native/" rel="prev" title="Java中的关键字native">
-                Java中的关键字native <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -735,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、描述"><span class="nav-text">一、描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、实录"><span class="nav-text">二、实录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#想法1、"><span class="nav-text">想法1、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想法2、"><span class="nav-text">想法2、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想法3、"><span class="nav-text">想法3、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想法4、"><span class="nav-text">想法4、</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#三、解决方案"><span class="nav-text">三、解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、"><span class="nav-text">四、</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、前言"><span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、画图"><span class="nav-text">二、画图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面准备"><span class="nav-text">页面准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html代码"><span class="nav-text">html代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js代码及详解"><span class="nav-text">js代码及详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单分析"><span class="nav-text">简单分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js代码"><span class="nav-text">js代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js代码详细解释（以及踩过的坑和未踩过的坑）"><span class="nav-text">js代码详细解释（以及踩过的坑和未踩过的坑）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、"><span class="nav-text">三、</span></a></li></ol></div>
             
 
           </div>

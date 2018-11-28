@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[jpa自动映射java实体类与数据库表]]></title>
     <url>%2Fit233.github.io%2F2018%2F11%2F28%2Fjpa%E8%87%AA%E5%8A%A8%E6%98%A0%E5%B0%84java%E5%AE%9E%E4%BD%93%E7%B1%BB%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%2F</url>
-    <content type="text"><![CDATA[​ 之前有说过jpa不实用实体类，那是某种特殊情况的时候的需要 ​ 而大多数的时候，我们后端代码还是需要有与数据库对应的实体类的 ​ 这样不但方便后端进行管理数据，而且更易于使用jpa框架]]></content>
+    <content type="text"><![CDATA[​ 之前有说过jpa不实用实体类，那是某种特殊情况的时候的需要 ​ 而大多数的时候，我们后端代码还是需要有与数据库对应的实体类的 ​ 这样方便后端进行管理数据，而且更易于使用jpa框架 这次废话不多说，毕竟时间不多，简单做一些记录，反正对于这个框架还不太熟悉！有机会再来好好研究一番 下面直接说出如何去写，原理，实验什么的就先免了 实体类123456789101112131415@Data@NoArgsConstructor@AllArgsConstructor@Builder@Entity@Table(name = "ssprt_config",uniqueConstraints = &#123;@UniqueConstraint(name = "UK_SSPRTCONFIG_TYPE",columnNames = "type")&#125;)public class SsprtConfig &#123; @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id; @Column(name = "type",length = 50) private String type; @Column(name = "value",length = 1) private Integer value;&#125; 简单解释： @Data：不用说了，就是getter、setter方法 @NoArgsConstructor：无参构造 @AllArgsConstructor：所有参数的构造 注意2和3两个注解，最好加上，因为我们利用jpa查询数据的时候，查完数据通过构造进行给实体类赋值，没有的话会报有关构造函数的错误 @Builder：builder创建对象，利用静态方法builder来创建对象，而不用new，提供链式setter赋值，方便快捷 @Entity：标注这是一个实体类，是一个与数据库映射的实体类 @Table：标注这个类所对应的数据库中的表名，同时，如果数据库中没有与之对应的表，会自动生成该表与之对应（这个要在配置文件中配置策略，不细说了，因为我也只是知道，并没有研究） name：不是必须的，如果没有，那么使用默认的该实体类的短类名。 uniqueConstraints：唯一键，指定某个列columnNames @Id：标注为主键 @GeneratedValue：主键生成策略， TABLE：使用表保存id值 IDENTITY：identitycolumn SEQUENCR ：sequence AUTO：根据数据库的不同使用上面三个 @Column：生命该字段与数据库表字段的映射关系， name指表字段名，length指数据长度，注意数据类型使用封装类]]></content>
       <categories>
         <category>java</category>
         <category>框架</category>

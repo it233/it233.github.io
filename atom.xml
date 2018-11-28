@@ -6,7 +6,7 @@
   <link href="/it233.github.io/atom.xml" rel="self"/>
   
   <link href="https://it233.github.io/"/>
-  <updated>2018-11-28T06:35:50.590Z</updated>
+  <updated>2018-11-28T07:42:55.567Z</updated>
   <id>https://it233.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://it233.github.io/2018/11/28/jpa%E8%87%AA%E5%8A%A8%E6%98%A0%E5%B0%84java%E5%AE%9E%E4%BD%93%E7%B1%BB%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8/"/>
     <id>https://it233.github.io/2018/11/28/jpa自动映射java实体类与数据库表/</id>
     <published>2018-11-28T06:29:10.000Z</published>
-    <updated>2018-11-28T06:35:50.590Z</updated>
+    <updated>2018-11-28T07:42:55.567Z</updated>
     
-    <content type="html"><![CDATA[<p>​    之前有说过jpa不实用实体类，那是某种特殊情况的时候的需要</p><p>​    而大多数的时候，我们后端代码还是需要有与数据库对应的实体类的</p><p>​    这样不但方便后端进行管理数据，而且更易于使用jpa框架</p>]]></content>
+    <content type="html"><![CDATA[<p>​    之前有说过jpa不实用实体类，那是某种特殊情况的时候的需要</p><p>​    而大多数的时候，我们后端代码还是需要有与数据库对应的实体类的</p><p>​    这样方便后端进行管理数据，而且更易于使用jpa框架</p><p>这次废话不多说，毕竟时间不多，简单做一些记录，反正对于这个框架还不太熟悉！有机会再来好好研究一番</p><p>下面直接说出如何去写，原理，实验什么的就先免了</p><h3 id="实体类"><a href="#实体类" class="headerlink" title="实体类"></a>实体类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"ssprt_config"</span>,uniqueConstraints = &#123;<span class="meta">@UniqueConstraint</span>(name = <span class="string">"UK_SSPRTCONFIG_TYPE"</span>,columnNames = <span class="string">"type"</span>)&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SsprtConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"type"</span>,length = <span class="number">50</span>)</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"value"</span>,length = <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="简单解释："><a href="#简单解释：" class="headerlink" title="简单解释："></a>简单解释：</h3><ol><li><p>@Data：不用说了，就是getter、setter方法</p></li><li><p>@NoArgsConstructor：无参构造</p></li><li><p>@AllArgsConstructor：所有参数的构造</p><ol><li>注意2和3两个注解，最好加上，因为我们利用jpa查询数据的时候，查完数据通过构造进行给实体类赋值，没有的话会报有关构造函数的错误</li></ol></li><li><p>@Builder：builder创建对象，利用静态方法builder来创建对象，而不用new，提供链式setter赋值，方便快捷</p></li><li><p>@Entity：标注这是一个实体类，是一个与数据库映射的实体类</p></li><li><p>@Table：标注这个类所对应的数据库中的表名，同时，如果数据库中没有与之对应的表，会自动生成该表与之对应（这个要在配置文件中配置策略，不细说了，因为我也只是知道，并没有研究）</p><p>name：不是必须的，如果没有，那么使用默认的该实体类的短类名。</p><p>uniqueConstraints：唯一键，指定某个列columnNames</p></li><li><p>@Id：标注为主键</p></li><li><p>@GeneratedValue：主键生成策略，</p><ol><li>TABLE：使用表保存id值              </li><li>IDENTITY：identitycolumn               </li><li>SEQUENCR ：sequence               </li><li>AUTO：根据数据库的不同使用上面三个</li></ol></li><li><p>@Column：生命该字段与数据库表字段的映射关系，</p><ol><li>name指表字段名，length指数据长度，注意数据类型使用封装类</li></ol></li><li></li></ol>]]></content>
     
     <summary type="html">
     
@@ -31,8 +31,8 @@
       
         &lt;p&gt;​    之前有说过jpa不实用实体类，那是某种特殊情况的时候的需要&lt;/p&gt;
 &lt;p&gt;​    而大多数的时候，我们后端代码还是需要有与数据库对应的实体类的&lt;/p&gt;
-&lt;p&gt;​    这样不但方便后端进行管理数据，而且更易于使用jpa框架&lt;/p&gt;
-
+&lt;p&gt;​    这样方便后端进行管理数据，而且更易于使用jpa框架&lt;/p&gt;
+&lt;p&gt;这次废话不多说，毕竟时间不多
       
     
     </summary>

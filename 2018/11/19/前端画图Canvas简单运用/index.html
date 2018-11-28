@@ -92,15 +92,12 @@
 <meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/webgl.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/draw0.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/draw1.png">
-<meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/draw2.png">
-<meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/test0.png">
-<meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/test1.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/test2.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/down0.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/down1.png">
-<meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/D:/Blog/it233/myBlog/source/_posts/%E5%89%8D%E7%AB%AF%E7%94%BB%E5%9B%BECanvas%E7%AE%80%E5%8D%95%E8%BF%90%E7%94%A8/h0.png">
-<meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/D:/Blog/it233/myBlog/source/_posts/%E5%89%8D%E7%AB%AF%E7%94%BB%E5%9B%BECanvas%E7%AE%80%E5%8D%95%E8%BF%90%E7%94%A8/h1.png">
-<meta property="og:updated_time" content="2018-11-21T09:18:17.598Z">
+<meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/h0.png">
+<meta property="og:image" content="https://it233.github.io/2018/11/19/前端画图Canvas简单运用/h1.png">
+<meta property="og:updated_time" content="2018-11-28T07:09:12.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端画图Canvas简单运用">
 <meta name="twitter:description" content="一、前言 朋友遇到的情况，属于前端的问题，是需要打开摄像头来拍照，关于这个问题，他找到了我让我来帮他解决，不过由于我的前端也是属于那种半吊子水平，所以在过程中也是参考了网上的不少资料和案例，不过还好的是因此也了解了不少知识，所以准备整理一下，做个记录 这篇主要是前端canvas画布功能，可能知识不够全面，但是要实现拍照应该是没问题了 除了参照图像资源进行利用canvas画图之外，canvas还有很">
@@ -358,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-21T17:18:17+08:00">
-                2018-11-21
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-28T15:09:12+08:00">
+                2018-11-28
               </time>
             
           </span>
@@ -504,7 +501,7 @@
 <ul>
 <li><p>通过上面的getContext()方法，能够看得出来，我们假如传入的是“2d”这个字符串，那么就会获得CanvasRenderingContext2D这个对象</p>
 </li>
-<li><p>在没有看过这些代码之前，我也曾一度认为，有2d就有3d，果断丢个”3d”参数进去，哈哈，获得null，那么我们肯定觉得不合理，有2d画图就应该能话3d的啊，其实webgl就是用来画3d的，不过我不会，也不了解</p>
+<li><p>在没有看过这些代码之前，我也曾一度认为，有2d就有3d，果断丢个”3d”参数进去，哈哈，获得null，那么我们肯定觉得不合理，有2d画图就应该能画3d的啊，其实webgl就是用来画3d的，不过我不会，也不了解</p>
 </li>
 <li><p>不过有一点需要注意了，接下来图文解释更清晰</p>
 <ul>
@@ -525,21 +522,7 @@
 <li><p>注意了：如果我们先入参2d获得返回对象保存在一个变量中，然后再入参webgl保存在另一个变量中，会是什么结果？</p>
 </li>
 <li><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="built_in">cv</span> = document.getElementById('canvas1');</span><br><span class="line">       console.<span class="built_in">log</span>(<span class="built_in">cv</span>)</span><br><span class="line">       <span class="built_in">var</span> ct2d = <span class="built_in">cv</span>.getContext(<span class="string">"2d"</span>);</span><br><span class="line">       <span class="built_in">var</span> ctwebgl = <span class="built_in">cv</span>.getContext(<span class="string">"webgl"</span>)</span><br><span class="line">       console.<span class="built_in">log</span>(<span class="string">"ct2d:"</span>+ct2d)</span><br><span class="line">       console.<span class="built_in">log</span>(<span class="string">"ctwebgl:"</span>+ctwebgl)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>结果就是先获得的context占据这个画布，再设置另一个则没用了，直接为null。而官方原注释并没有解释为何，我们可以从官方注释中得到的信息，就是：</p>
-</li>
-<li><p>返回一个对象，该对象提供绘制和操作文档中画布元素上的图像和图形的方法和属性。上下文对象包括关于颜色、线宽、字体和其他可以在画布上绘制的图形参数的信息。</p>
-<p>  @param上下文要创建的画布类型的标识符(ID)。Internet Explorer 9和Internet Explorer 10仅支持使用canvas.getContext(“2d”)的2d环境;IE11预览还支持3d或WebGL上下文使用canvas.getContext(“实验- WebGL”);</p>
-</li>
-<li><p>好像并没有什么文字能解释为什么只能获得一次？那么我们就只能从代码中分析了，请移至注意点2查看代码，这里不贴了</p>
-</li>
-<li><p>w3school中也没有过多解释，不过这里依然不妨碍理解，这个方法大致为以下情况：</p>
-</li>
-<li><p>根据入参来匹配2d或者webgl，如果是，那么会先去看contextAttributes，如果已经有值了（上次一调用之后会将2d或者webgl相应对象存下来，猜测），那么直接返回null，这就导致如果第一次已经拿到2d的对象了，那么下面再入参webgl调用，获得的就是null，而为什么不是返回上一次的，就是函数返回值的问题吧，看前两个getContext，返回值要么是对应的2d或webgl对象，要么是null。这就是说参数匹配到之后，就会执行相应的函数，而”2d”只会返回2d对象或者null，webgl也是一样。最后一个方法，是在参数不匹配2d或者webgl的时候，会先去返回2d，如果没有，再考虑webgl，最后二者都没有，就返回null</p>
-</li>
-<li><p>其实，之上一点的看法，最后理解根本无法实践，因为按照最后的说法，我们必须要传一个参数过去，而如果我们先传过去2d，那么获得2d对象，这时候再去调用getContext实践，不好意思，之前已经设置过2d了，其他的我不会给你了。就好比一个画板，其中A画家先去使用了，那么不好意思，不管你后来再来的其他任何人，都不会得到使用权。不过如果再次传入2d，还是能够获得2d对象，这个只能解释为A画家中途休息，休息完之后依旧拥有该画板的使用权。以至于最后的猜想也没法实现验证。因为我除了传入2d参数，其他任何参数都会直接获得null</p>
-</li>
-<li><p>而且这看到的只是interface中的代码，没有具体实现的逻辑代码，一切靠猜测，所以可能会很大的冲突，不过结果肯定是一样的，因为就是通过结果来进行推测的逻辑。如果有人比较了解这方面的东西，希望能够告知以便相互学习</p>
+ <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 结果就是先获得的context占据这个画布，再设置另一个则没用了，直接为null。而官方原注释并没有解释为何，我们可以从官方注释中得到的信息，就是：</span><br><span class="line"></span><br><span class="line">- 返回一个对象，该对象提供绘制和操作文档中画布元素上的图像和图形的方法和属性。上下文对象包括关于颜色、线宽、字体和其他可以在画布上绘制的图形参数的信息。</span><br><span class="line"></span><br><span class="line">    @param上下文要创建的画布类型的标识符(ID)。Internet Explorer <span class="number">9</span>和Internet Explorer <span class="number">10</span>仅支持使用canvas.getContext(“<span class="number">2</span>d”)的<span class="number">2</span>d环境;IE11预览还支持<span class="number">3</span>d或WebGL上下文使用canvas.getContext(“实验- WebGL”);</span><br><span class="line"></span><br><span class="line">- 好像并没有什么文字能解释为什么只能获得一次？那么我们就只能从代码中分析了，请移至注意点<span class="number">2</span>查看代码，这里不贴了</span><br><span class="line"></span><br><span class="line">- w3school中也没有过多解释，不过这里依然不妨碍理解，这个方法大致为以下情况：</span><br><span class="line"></span><br><span class="line">- 根据入参来匹配<span class="number">2</span>d或者webgl，如果是，那么会先去看contextAttributes，如果已经有值了（上次一调用之后会将<span class="number">2</span>d或者webgl相应对象存下来，猜测），那么直接返回null，这就导致如果第一次已经拿到<span class="number">2</span>d的对象了，那么下面再入参webgl调用，获得的就是null，而为什么不是返回上一次的，就是函数返回值的问题吧，看前两个getContext，返回值要么是对应的<span class="number">2</span>d或webgl对象，要么是null。这就是说参数匹配到之后，就会执行相应的函数，而<span class="string">"2d"</span>只会返回<span class="number">2</span>d对象或者null，webgl也是一样。最后一个方法，是在参数不匹配<span class="number">2</span>d或者webgl的时候，会先去返回<span class="number">2</span>d，如果没有，再考虑webgl，最后二者都没有，就返回null</span><br><span class="line"></span><br><span class="line">- 其实，之上一点的看法，最后理解根本无法实践，因为按照最后的说法，我们必须要传一个参数过去，而如果我们先传过去<span class="number">2</span>d，那么获得<span class="number">2</span>d对象，这时候再去调用getContext实践，不好意思，之前已经设置过<span class="number">2</span>d了，其他的我不会给你了。就好比一个画板，其中A画家先去使用了，那么不好意思，不管你后来再来的其他任何人，都不会得到使用权。不过如果再次传入<span class="number">2</span>d，还是能够获得<span class="number">2</span>d对象，这个只能解释为A画家中途休息，休息完之后依旧拥有该画板的使用权。以至于最后的猜想也没法实现验证。因为我除了传入<span class="number">2</span>d参数，其他任何参数都会直接获得null</span><br><span class="line"></span><br><span class="line">- 而且这看到的只是interface中的代码，没有具体实现的逻辑代码，一切靠猜测，所以可能会很大的冲突，不过结果肯定是一样的，因为就是通过结果来进行推测的逻辑。如果有人比较了解这方面的东西，希望能够告知以便相互学习</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -547,18 +530,21 @@
 </li>
 <li><p>注意点4：这里不叫注意点，应该是知识点</p>
 <ul>
-<li>drawImage（r,x,y,w,h）参数：<ul>
+<li><p>drawImage（r,x,y,w,h）参数：</p>
+<ul>
 <li>r：代表的是图像源头</li>
 <li>x：表示在画布中x坐标轴的偏移量</li>
 <li>y：y坐标轴偏移量</li>
 <li>w：画出的图片的宽度</li>
-<li>h：高度</li>
+<li><p>h：高度</p>
+<pre><code>、结果实例    
+</code></pre></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h1 id="三、结果实例"><a href="#三、结果实例" class="headerlink" title="三、结果实例"></a>三、结果实例</h1><h2 id="参照页面img元素画图"><a href="#参照页面img元素画图" class="headerlink" title="参照页面img元素画图"></a>参照页面img元素画图</h2><ul>
+<h2 id="参照页面img元素画图"><a href="#参照页面img元素画图" class="headerlink" title="参照页面img元素画图"></a>参照页面img元素画图</h2><ul>
 <li>这里就丢两张图， 反正该解释的上面已经解释了</li>
 <li><img src="/2018/11/19/前端画图Canvas简单运用/draw0.png" alt=""></li>
 <li><img src="/2018/11/19/前端画图Canvas简单运用/draw1.png" alt=""></li>
@@ -571,45 +557,33 @@
 <li><p>代码：</p>
 </li>
 <li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>)</span><br><span class="line">       img.src=<span class="string">"../imgs/0.png"</span></span><br><span class="line">       <span class="built_in">document</span>.getElementById(<span class="string">"draw"</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">var</span> cv = <span class="built_in">document</span>.getElementById(<span class="string">'canvas1'</span>);</span><br><span class="line">           <span class="keyword">var</span> ct = cv.getContext(<span class="string">"2d"</span>);</span><br><span class="line">           ct.drawImage(img, <span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">       &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>结果图：</p>
-</li>
-<li><p><img src="/2018/11/19/前端画图Canvas简单运用/draw2.png" alt=""></p>
-</li>
-<li><p>以上展示了如何利用canvas画图，其中有理解错误的地方，也就这样了。下面来看一下怎么将这张canvas中的图片保存下来，这个后面会用到</p>
-</li>
-</ul>
-<h1 id="四、canvas补充"><a href="#四、canvas补充" class="headerlink" title="四、canvas补充"></a>四、canvas补充</h1><ul>
-<li>上面说到的两个问题，在这里进行补充示例说明结果</li>
-</ul>
-<h2 id="问题1：canvas设置为display-none的情况会如何"><a href="#问题1：canvas设置为display-none的情况会如何" class="headerlink" title="问题1：canvas设置为display:none的情况会如何"></a>问题1：canvas设置为display:none的情况会如何</h2><ul>
-<li><p>首先看一下代码：</p>
-</li>
-<li><p>html：直接设置canvas样式为display:none</p>
-</li>
-<li><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas <span class="attribute">height</span>=<span class="string">"400"</span> <span class="attribute">width</span>=<span class="string">"200"</span> <span class="attribute">id</span>=<span class="string">"canvas1"</span> <span class="attribute">style</span>=<span class="string">"border: 1px solid gray;display:none;"</span>&gt;&lt;/canvas&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">&lt;button <span class="attribute">id</span>=<span class="string">"draw"</span>&gt;画图&lt;/button&gt;</span><br><span class="line">&lt;button <span class="attribute">id</span>=<span class="string">"show"</span>&gt;展示&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>结果可想而知，页面上什么都没有只有两个个按钮</p>
-</li>
-<li><p><img src="/2018/11/19/前端画图Canvas简单运用/test0.png" alt=""></p>
-</li>
-<li><p>js代码：思路是，点击画图将图片画到canvas中，在点击展示改变canvas的样式为block，看看有没有图片</p>
-</li>
-<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//画图按钮</span></span><br><span class="line"><span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>)</span><br><span class="line">img.src=<span class="string">"../imgs/0.png"</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"draw"</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> cv = <span class="built_in">document</span>.getElementById(<span class="string">'canvas1'</span>);</span><br><span class="line">    <span class="keyword">var</span> ct = cv.getContext(<span class="string">"2d"</span>);</span><br><span class="line">    ct.drawImage(img, <span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//展示按钮</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"show"</span>).addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"canvas1"</span>).style.display= <span class="string">'block'</span>;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>结果：</p>
-</li>
-<li><p><img src="/2018/11/19/前端画图Canvas简单运用/test1.png" alt=""></p>
-</li>
-<li><p>啊哈，有图片耶！那么我们来看看第二种情况</p>
-</li>
-</ul>
-<h2 id="问题2：canvas设置为长宽都为0的情况会如何"><a href="#问题2：canvas设置为长宽都为0的情况会如何" class="headerlink" title="问题2：canvas设置为长宽都为0的情况会如何"></a>问题2：canvas设置为长宽都为0的情况会如何</h2><ul>
-<li><p>思路同上一个，直接贴代码和效果</p>
-</li>
-<li><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas <span class="attribute">height</span>=<span class="string">"0"</span> <span class="attribute">width</span>=<span class="string">"0"</span> <span class="attribute">id</span>=<span class="string">"canvas1"</span> <span class="attribute">style</span>=<span class="string">"border: 1px solid gray;"</span>&gt;&lt;/canvas&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">&lt;button <span class="attribute">id</span>=<span class="string">"draw"</span>&gt;画图&lt;/button&gt;</span><br><span class="line">&lt;button <span class="attribute">id</span>=<span class="string">"show"</span>&gt;展示&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//画图按钮</span></span><br><span class="line">      <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>)</span><br><span class="line">      img.src = <span class="string">"../imgs/0.png"</span></span><br><span class="line">      <span class="built_in">document</span>.getElementById(<span class="string">"draw"</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> cv = <span class="built_in">document</span>.getElementById(<span class="string">'canvas1'</span>);</span><br><span class="line">          <span class="keyword">var</span> ct = cv.getContext(<span class="string">"2d"</span>);</span><br><span class="line">          ct.drawImage(img, <span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="comment">//展示按钮</span></span><br><span class="line">      <span class="built_in">document</span>.getElementById(<span class="string">"show"</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="built_in">document</span>.getElementById(<span class="string">"canvas1"</span>).style.width = <span class="string">'200px'</span>;</span><br><span class="line">          <span class="built_in">document</span>.getElementById(<span class="string">"canvas1"</span>).style.height = <span class="string">'400px'</span>;</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="literal">- 结果图：</span></span><br><span class="line"></span><br><span class="line"><span class="literal">- ![](前端画图Canvas简单运用\draw2.png)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">- 以上展示了如何利用canvas画图，其中有理解错误的地方，也就这样了。下面来看一下怎么将这张canvas中的图片保存下来，这个后面会用到</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 四、canvas补充</span></span><br><span class="line"></span><br><span class="line"><span class="literal">- 上面说到的两个问题，在这里进行补充示例说明结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 问题1：canvas设置为display:none的情况会如何</span></span><br><span class="line"></span><br><span class="line"><span class="literal">- 首先看一下代码：</span></span><br><span class="line"></span><br><span class="line"><span class="literal">- html：直接设置canvas样式为display:none</span></span><br><span class="line"></span><br><span class="line"><span class="literal">-</span></span><br></pre></td></tr></table></figure>
+<p><canvas height="400" width="200" id="canvas1" style="border: 1px solid gray;display:none;"></canvas><br><br><br><button id="draw">画图</button><br><button id="show">展示</button></p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="deletion">- 结果可想而知，页面上什么都没有只有两个个按钮</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">- ![](前端画图Canvas简单运用\test0.png)</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">- js代码：思路是，点击画图将图片画到canvas中，在点击展示改变canvas的样式为block，看看有没有图片</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-</span></span><br></pre></td></tr></table></figure>
+<p>//画图按钮<br>var img = document.createElement(“img”)<br>img.src=”../imgs/0.png”<br>document.getElementById(“draw”).addEventListener(‘click’, function () {</p>
+<pre><code>var cv = document.getElementById(&apos;canvas1&apos;);
+var ct = cv.getContext(&quot;2d&quot;);
+ct.drawImage(img, 0, 0, 200, 200);
+</code></pre><p>});<br>//展示按钮<br>document.getElementById(“show”).addEventListener(‘click’,function () {</p>
+<pre><code>document.getElementById(&quot;canvas1&quot;).style.display= &apos;block&apos;;
+</code></pre><p>})</p>
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="literal">- 结果：</span></span><br><span class="line"></span><br><span class="line"><span class="literal">- ![](前端画图Canvas简单运用\test1.png)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">- 啊哈，有图片耶！那么我们来看看第二种情况</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 问题2：canvas设置为长宽都为0的情况会如何</span></span><br><span class="line"></span><br><span class="line"><span class="literal">- 思路同上一个，直接贴代码和效果</span></span><br><span class="line"></span><br><span class="line"><span class="literal">-</span></span><br></pre></td></tr></table></figure>
+<p><canvas height="0" width="0" id="canvas1" style="border: 1px solid gray;"></canvas><br><br><br><button id="draw">画图</button><br><button id="show">展示</button></p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="deletion">-</span></span><br></pre></td></tr></table></figure>
+<p>  //画图按钮</p>
+<pre><code>var img = document.createElement(&quot;img&quot;)
+img.src = &quot;../imgs/0.png&quot;
+document.getElementById(&quot;draw&quot;).addEventListener(&apos;click&apos;, function () {
+    var cv = document.getElementById(&apos;canvas1&apos;);
+    var ct = cv.getContext(&quot;2d&quot;);
+    ct.drawImage(img, 0, 0, 200, 200);
+});
+//展示按钮
+document.getElementById(&quot;show&quot;).addEventListener(&apos;click&apos;, function () {
+    document.getElementById(&quot;canvas1&quot;).style.width = &apos;200px&apos;;
+    document.getElementById(&quot;canvas1&quot;).style.height = &apos;400px&apos;;
+})
+</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
 </li>
 <li><p><img src="/2018/11/19/前端画图Canvas简单运用/test2.png" alt=""></p>
 </li>
@@ -619,7 +593,7 @@
 <h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ul>
 <li>我们将canvas设置为display:none，但是该元素还是存在页面中的，并且占有一定的面积，只是因为设置为不显示，所以视觉上并没有占用页面的空间。</li>
 <li>之前说过，canvas是画布，画图是将图片画在canvas元素上，那么既然存在，不管别人看不看得到，我们画图的时候没有影响</li>
-<li>而将canvas宽高设置为0，那么该元素虽然依旧存在页面中，但是一个没有任何大小的元素，真正的意义是依旧存在页面中吗？谁能将一幅画话在面积为0的画板上呢？</li>
+<li>而将canvas宽高设置为0，那么该元素虽然依旧存在页面中，但是一个没有任何大小的元素，真正的意义是依旧存在页面中吗？谁能将一幅画画在面积为0的画板上呢？</li>
 <li>所以，对于canvas的理解，就是这样，它就是一个容器，就是用来存放画出来的图像的一个容器。</li>
 </ul>
 <h1 id="五、canvas图片下载"><a href="#五、canvas图片下载" class="headerlink" title="五、canvas图片下载"></a>五、canvas图片下载</h1><ul>
@@ -657,7 +631,7 @@
 </ul>
 <h1 id="六、摄像头拍照"><a href="#六、摄像头拍照" class="headerlink" title="六、摄像头拍照"></a>六、摄像头拍照</h1><ul>
 <li>其实摄像头拍照功能，我们也能够利用canvas画图来实现</li>
-<li>按照我们之前说的，利用canvas只要能够将画面元素拿到，就能够将该元素区域中的图像画到canvas中，然后瞎子啊</li>
+<li>按照我们之前说的，利用canvas只要能够将画面元素拿到，就能够将该元素区域中的图像画到canvas中，然后下载</li>
 <li>上面已经说了后面的步骤，所以我们要利用摄像头中拍照，那么到目前我们要解决的事情就只有两个了：<ul>
 <li>1、拿到摄像头中拍摄到的画面展示在页面中</li>
 <li>2、将页面中展示摄像头页面的元素获取到，给canvas画下来</li>
@@ -744,7 +718,7 @@
 <li>虽说路径已经配好了，不过不觉得还差点什么吗？没错，video没有开始播放啊，不解释了，.play()</li>
 </ul>
 <h2 id="拍照"><a href="#拍照" class="headerlink" title="拍照"></a>拍照</h2><ul>
-<li><p>ok，摄像头画面我们又了，那么就该”拍照”了吧，为什么把拍照两个字用引号引起来？还不懂吗？因为压根就不是拍照，而是canvas画图</p>
+<li><p>ok，摄像头画面我们有了，那么就该”拍照”了吧，为什么把拍照两个字用引号引起来？还不懂吗？因为压根就不是拍照，而是canvas画图</p>
 </li>
 <li><p>这一步就非常简单了，照旧，在页面上添加一个 拍照 按钮，然后点击事件里面代码如下：</p>
 <ul>
@@ -774,7 +748,7 @@
 <li>好了，这个不解释，但是下面我们来完善一下页面，并且看看为什么会出现之前提出的两个问题</li>
 </ul>
 <h1 id="七、完善"><a href="#七、完善" class="headerlink" title="七、完善"></a>七、完善</h1><h2 id="页面效果完善"><a href="#页面效果完善" class="headerlink" title="页面效果完善"></a>页面效果完善</h2><ul>
-<li>嘿嘿，说到这，我要提要求了，我们一般摄像头拍摄，是不是有需要弹出层的？有需要将影响固定在某个区域的，反正肯定不会是在页面最左上角吧？那样丑死了。</li>
+<li>嘿嘿，说到这，我要提要求了，我们一般摄像头拍摄，是不是有需要弹出层的？有需要将影像固定在某个区域的，反正肯定不会是在页面最左上角吧？那样丑死了。</li>
 <li>ok，那么我们就来看一下吧。最简单的思路就是，将video元素和canvas元素共同放在同一个容器中，这样不管需求想要将影像在哪呈现，只要把这个容器拿过去就OK了，里面什么都不需要动。</li>
 </ul>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> id=<span class="string">"camera"</span>&gt;</span><br><span class="line">	&lt;<span class="selector-tag">div</span> id=<span class="string">"contentHolder"</span>&gt;</span><br><span class="line">		&lt;<span class="selector-tag">video</span> id=<span class="string">"video"</span> <span class="attribute">width</span>=<span class="string">"640"</span> height=<span class="string">"480"</span> autoplay&gt;&lt;/video&gt;</span><br><span class="line">		&lt;<span class="selector-tag">canvas</span>  id=<span class="string">"canvas"</span> <span class="attribute">width</span>=<span class="string">"640"</span> height=<span class="string">"480"</span>&gt;&lt;/canvas&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;<span class="selector-tag">div</span> id=<span class="string">"buttons"</span>&gt;</span><br><span class="line">		&lt;<span class="selector-tag">button</span> id=<span class="string">"btn_snap"</span> class=<span class="string">"btn btn_blue"</span>&gt;拍照&lt;/button&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
@@ -782,11 +756,11 @@
 <li><p>ok，我的页面（老脸很红，这明明是朋友发来的页面）时这个样子滴，一个大的容器id = “camera”，而里面分两块div，一个是contentHolder用来呈现影响video以及拍照后保存画面的vanvas，另一个是存放按钮</p>
 </li>
 <li><p>我草，为什么会这样</p>
-<p><img src="/2018/11/19/前端画图Canvas简单运用/D:/Blog/it233/myBlog/source/_posts/%E5%89%8D%E7%AB%AF%E7%94%BB%E5%9B%BECanvas%E7%AE%80%E5%8D%95%E8%BF%90%E7%94%A8/h0.png" alt=""></p>
+<p><img src="/2018/11/19/前端画图Canvas简单运用/h0.png" alt=""></p>
 <ul>
 <li>为什么？</li>
 </ul>
-<p><img src="/2018/11/19/前端画图Canvas简单运用/D:/Blog/it233/myBlog/source/_posts/%E5%89%8D%E7%AB%AF%E7%94%BB%E5%9B%BECanvas%E7%AE%80%E5%8D%95%E8%BF%90%E7%94%A8/h1.png" alt=""></p>
+<p><img src="/2018/11/19/前端画图Canvas简单运用/h1.png" alt=""></p>
 </li>
 </ul>
 <ul>
@@ -1039,7 +1013,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、前言"><span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、画图"><span class="nav-text">二、画图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面准备"><span class="nav-text">页面准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html代码"><span class="nav-text">html代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js代码及详解"><span class="nav-text">js代码及详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单分析"><span class="nav-text">简单分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js代码"><span class="nav-text">js代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js代码详细解释（以及踩过的坑和未踩过的坑）"><span class="nav-text">js代码详细解释（以及踩过的坑和未踩过的坑）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、结果实例"><span class="nav-text">三、结果实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参照页面img元素画图"><span class="nav-text">参照页面img元素画图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不参照页面img元素画图"><span class="nav-text">不参照页面img元素画图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、canvas补充"><span class="nav-text">四、canvas补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题1：canvas设置为display-none的情况会如何"><span class="nav-text">问题1：canvas设置为display:none的情况会如何</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题2：canvas设置为长宽都为0的情况会如何"><span class="nav-text">问题2：canvas设置为长宽都为0的情况会如何</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-text">总结：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、canvas图片下载"><span class="nav-text">五、canvas图片下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、摄像头拍照"><span class="nav-text">六、摄像头拍照</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#打开摄像头"><span class="nav-text">打开摄像头</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先贴代码，然后再解释"><span class="nav-text">先贴代码，然后再解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详解"><span class="nav-text">详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#navigator"><span class="nav-text">navigator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mediaDevices"><span class="nav-text">mediaDevices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mediaDevices-getUserMedia"><span class="nav-text">mediaDevices.getUserMedia()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-then-function-回调"><span class="nav-text">Promise.then(function(){})回调</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拍照"><span class="nav-text">拍照</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭摄像头"><span class="nav-text">关闭摄像头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题点"><span class="nav-text">问题点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#画面出不来"><span class="nav-text">画面出不来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拍照无效果？"><span class="nav-text">拍照无效果？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、完善"><span class="nav-text">七、完善</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面效果完善"><span class="nav-text">页面效果完善</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js完善"><span class="nav-text">js完善</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件"><span class="nav-text">组件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、前言"><span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、画图"><span class="nav-text">二、画图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面准备"><span class="nav-text">页面准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html代码"><span class="nav-text">html代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js代码及详解"><span class="nav-text">js代码及详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单分析"><span class="nav-text">简单分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js代码"><span class="nav-text">js代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js代码详细解释（以及踩过的坑和未踩过的坑）"><span class="nav-text">js代码详细解释（以及踩过的坑和未踩过的坑）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参照页面img元素画图"><span class="nav-text">参照页面img元素画图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不参照页面img元素画图"><span class="nav-text">不参照页面img元素画图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-text">总结：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、canvas图片下载"><span class="nav-text">五、canvas图片下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、摄像头拍照"><span class="nav-text">六、摄像头拍照</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#打开摄像头"><span class="nav-text">打开摄像头</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先贴代码，然后再解释"><span class="nav-text">先贴代码，然后再解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详解"><span class="nav-text">详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#navigator"><span class="nav-text">navigator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mediaDevices"><span class="nav-text">mediaDevices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mediaDevices-getUserMedia"><span class="nav-text">mediaDevices.getUserMedia()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-then-function-回调"><span class="nav-text">Promise.then(function(){})回调</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拍照"><span class="nav-text">拍照</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭摄像头"><span class="nav-text">关闭摄像头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题点"><span class="nav-text">问题点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#画面出不来"><span class="nav-text">画面出不来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拍照无效果？"><span class="nav-text">拍照无效果？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、完善"><span class="nav-text">七、完善</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面效果完善"><span class="nav-text">页面效果完善</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js完善"><span class="nav-text">js完善</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件"><span class="nav-text">组件</span></a></li></ol></li></ol></div>
             
 
           </div>

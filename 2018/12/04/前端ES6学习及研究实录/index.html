@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/it233.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/it233.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/it233.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/it233.github.io/images/user.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/it233.github.io/images/user.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/it233.github.io/images/user.jpg?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="let,const,实录,">
+
+
+
+
+
+  <link rel="alternate" href="/it233.github.io/atom.xml" title="浮梦之殇" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="一、基本用法1. let命令基本用法 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 中所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明的变量，只会在le">
+<meta name="keywords" content="let,const,实录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端ES6学习及研究实录">
+<meta property="og:url" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/index.html">
+<meta property="og:site_name" content="浮梦之殇">
+<meta property="og:description" content="一、基本用法1. let命令基本用法 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 中所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明的变量，只会在le">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/1.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/2.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/3.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/4.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/5.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/6.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/7.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/8.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/9.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/10.png">
+<meta property="og:updated_time" content="2018-12-04T09:59:31.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端ES6学习及研究实录">
+<meta name="twitter:description" content="一、基本用法1. let命令基本用法 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 中所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明的变量，只会在le">
+<meta name="twitter:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/it233.github.io/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/">
+
+
+
+
+
+  <title>前端ES6学习及研究实录 | 浮梦之殇</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+
+
+
+<div id="background-image-div"></div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/it233.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">浮梦之殇</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/it233.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/it233.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/it233.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/it233.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/it233.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://it233.github.io/it233.github.io/2018/12/04/前端ES6学习及研究实录/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="漠">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/it233.github.io/images/user.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浮梦之殇">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端ES6学习及研究实录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-04T15:47:18+08:00">
+                2018-12-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-04T17:59:31+08:00">
+                2018-12-04
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/it233.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/it233.github.io/categories/前端/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、基本用法"><a href="#一、基本用法" class="headerlink" title="一、基本用法"></a>一、基本用法</h1><h2 id="1-let命令基本用法"><a href="#1-let命令基本用法" class="headerlink" title="1. let命令基本用法"></a>1. let命令基本用法</h2><p> ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。</p>
+<p>而存在了var命令来声明变量，为什么还要有let命令。</p>
+<p>中所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。</p>
+<p>为了有效的规避此类的问题，特推出了let命令。使用let声明的变量，只会在let命令所在的代码块内有效，也就是除了包含let命令的作用域，其他地方是访问不到这个变量的</p>
+<p>下面实录实验代码</p>
+<ul>
+<li>先来看一下var命令声明的变量</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line">console.log(a) <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+<p>这个代码运行之后，能够打印出a的值为10，然而我们的变量a是在{}区域中定义的，而console.log(a)是在该区域外面访问a，也就是在上一级调用低级区域中的变量，但是依然能够进行访问</p>
+<ul>
+<li>然后给大家展示一个很有趣的问题</li>
+</ul>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">b </span>= <span class="number">0</span><span class="comment">;</span></span><br><span class="line">for(var a = <span class="number">0</span><span class="comment">;a &lt;10;a++)&#123;</span></span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        <span class="keyword">b </span>+= a<span class="comment">;</span></span><br><span class="line">        console.log(<span class="string">"for-"</span>+a+<span class="string">":"</span>+<span class="keyword">b)</span></span><br><span class="line"><span class="keyword"> </span>   &#125;, <span class="number">1000</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">var a = <span class="number">5</span><span class="comment">;</span></span><br><span class="line"><span class="keyword">b+=a;</span></span><br><span class="line"><span class="keyword">console.log("0-9累加总和+5为："+b)</span></span><br></pre></td></tr></table></figure>
+<p>按照正常逻辑，我们这块代码是要进行统计0-9累加的和，我们分析这段代码：</p>
+<ol>
+<li>先声明变量b为0，方便最后保存总和</li>
+<li>写for循环，进行0-9的累加</li>
+<li>然后定义变量a=5，b计算完之后再累加5，然后输出结果</li>
+<li>正常逻辑算下来应该是45+5 = 50</li>
+<li>结果呢？</li>
+</ol>
+<p><img src="/2018/12/04/前端ES6学习及研究实录/1.png" alt=""></p>
+<p>我想，和我一样先学java后来学js的人，很痛苦吧。为什么呢？为什么呢？</p>
+<p>这个具体如何解释我也不太能理解，到底for循环的a与后面定义的a是否同一个？还是后面定义的把之前的给覆盖掉了？分不太清，只知道在等1s之后，执行b+=a的时候，拿到的a是5，最后赋值为5的那个a</p>
+<p>除此之外，还有一个比较好玩的是：把后面var a = 5去掉，又会出现另一个问题</p>
+<ul>
+<li>再来看一下let</li>
+</ul>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span>  a = <span class="number">10</span></span><br><span class="line">		console.<span class="built_in">log</span>(a)<span class="comment">//10</span></span><br><span class="line">&#125;</span><br><span class="line">console.<span class="built_in">log</span>(a)<span class="comment">//ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
+<p>这个代码运行第三行会打印10，而第5行会报错：ReferenceError: a is not defined </p>
+<p>这就是let的作用，在{}区域中定义的啊，在该区域外（上级区域）是无法访问到该变量的，这样就不存在变量提升（作用域升级）的问题了,而a变量也就只能作用在｛｝区域中</p>
+<ul>
+<li>实验之前的那个循环把var改成let，会出现什么情况</li>
+</ul>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">b </span>= <span class="number">0</span></span><br><span class="line">for(let a = <span class="number">0</span><span class="comment">;a &lt;10;a++)&#123;</span></span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        <span class="keyword">b </span>+= a </span><br><span class="line">        console.log(<span class="string">"for-"</span>+a+<span class="string">":"</span>+<span class="keyword">b)</span></span><br><span class="line"><span class="keyword"> </span>   &#125;, <span class="number">1000</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">var a = <span class="number">5</span><span class="comment">;</span></span><br><span class="line"><span class="keyword">b+=a;</span></span><br><span class="line"><span class="keyword">console.log("0-9累加总和+5为："+b)</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/04/前端ES6学习及研究实录/2.png" alt=""></p>
+<p>虽然输出顺序有问题（setTimeout()函数异步延时），但是最终结果是正确的</p>
+<ul>
+<li>好了，我们来看一下之前说的去掉后面定义的var会出现什么问题</li>
+</ul>
+<p>var：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(<span class="name">var</span> a = <span class="number">0</span><span class="comment">;a &lt;10;a++)&#123;</span></span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(<span class="string">"for-"</span>+a)</span><br><span class="line">    &#125;, <span class="number">1000</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">console.log()</span><br></pre></td></tr></table></figure>
+<p>为了方便，我们只保留了循环，结果如下</p>
+<p><img src="/2018/12/04/前端ES6学习及研究实录/3.png" alt=""></p>
+<p>let：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(<span class="name">let</span> a = <span class="number">0</span><span class="comment">;a &lt;10;a++)&#123;</span></span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(<span class="string">"for-"</span>+a)</span><br><span class="line">    &#125;, <span class="number">1000</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">console.log()</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="/2018/12/04/前端ES6学习及研究实录/4.png" alt=""></p>
+<p>为什么会出现这样的情况，别急，我们来调试一下看看会不会发现什么：</p>
+<p>我们先来看看var：</p>
+<ul>
+<li>断点就打在第一行，for，然后启动调试，注意看变量这块</li>
+</ul>
+<p><img src="/2018/12/04/前端ES6学习及研究实录/5.png" alt=""></p>
+<p>在这里要说一下刚刚大家能够看到，我们这张图是启动调试之后未做任何操作的第一张图，但是这时候Local中就已经存在了a，这是为什么？是node.js在遇到变量声明的时候，会将声明放在第一行，先声明变量，然后在继续执行</p>
+<ul>
+<li>当我们走到第二行，那么a就创建成功了，我们来观察变量看看有什么值得注意的？</li>
+</ul>
+<p><img src="/2018/12/04/前端ES6学习及研究实录/6.png" alt=""></p>
+<p>看到Local下面a。这是本地变量。而之前为undefined，通过第一行的赋值之后(声明被提升到了上面，所以第一行只完成了一个赋值)，它的值是0 </p>
+<ul>
+<li>接下来我们一直调试到第六行，然后能发现这个情况：</li>
+</ul>
+<p><img src="/2018/12/04/前端ES6学习及研究实录/7.png" alt=""></p>
+<ul>
+<li>然后我们放开调试，直接执行到底</li>
+</ul>
+<p><img src="/2018/12/04/前端ES6学习及研究实录/8.png" alt=""></p>
+<p>然后我们来看看let</p>
+<p><img src="/2018/12/04/前端ES6学习及研究实录/9.png" alt=""></p>
+<ul>
+<li>调试走一步</li>
+</ul>
+<p><img src="/2018/12/04/前端ES6学习及研究实录/10.png" alt=""></p>
+<p>这里出现了Block：这是块级作用域，ES6新加的，后面会说到。这就是不同，这样就说明这个for中声明的a就是只能作用在这个块中，其他地方用不了，也拿不到，所以结果是，不说了。都知道了</p>
+
+      
+    </div>
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="漠 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    漠
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/" title="前端ES6学习及研究实录">https://it233.github.io/2018/12/04/前端ES6学习及研究实录/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/it233.github.io/tags/let/" rel="tag"># let</a>
+          
+            <a href="/it233.github.io/tags/const/" rel="tag"># const</a>
+          
+            <a href="/it233.github.io/tags/实录/" rel="tag"># 实录</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/it233.github.io/2018/11/29/java整型封装类Integer的比较/" rel="next" title="java整型封装类Integer的比较">
+                <i class="fa fa-chevron-left"></i> java整型封装类Integer的比较
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/it233.github.io/images/user.jpg" alt="漠">
+            
+              <p class="site-author-name" itemprop="name">漠</p>
+              <p class="site-description motion-element" itemprop="description">所见之事 所感之物</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/it233.github.io/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/it233.github.io/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/it233.github.io/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/it233.github.io/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、基本用法"><span class="nav-text">一、基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-let命令基本用法"><span class="nav-text">1. let命令基本用法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright" style="display:inline-block;text-align:right;"> &copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">漠</span>
+
+  
+  
+<!-- <div class="powered-by" style="display:inline-block;text-align:right;min-width:200px;width:50%;">
+  <div >
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_pv">访客 : <span id="busuanzi_value_site_pv"></span>
+  </div>
+<div>
+</div> -->
+
+
+
+</div>
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/it233.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/it233.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/it233.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/it233.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/it233.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/it233.github.io/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

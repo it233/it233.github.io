@@ -98,7 +98,9 @@
 <meta property="og:image" content="https://it233.github.io/2018/11/29/java整型封装类Integer的比较/9.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/29/java整型封装类Integer的比较/10.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/29/java整型封装类Integer的比较/11.png">
-<meta property="og:updated_time" content="2018-11-30T09:19:01.917Z">
+<meta property="og:image" content="https://it233.github.io/2018/11/29/java整型封装类Integer的比较/12.png">
+<meta property="og:image" content="https://it233.github.io/2018/11/29/java整型封装类Integer的比较/13.png">
+<meta property="og:updated_time" content="2018-12-05T09:20:36.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java整型封装类Integer的比较">
 <meta name="twitter:description" content="【笔记】标签，是对于以前做的一些笔记的回顾，同时还有新的学习。有可能有些地方已经遗漏了，也可能有些地方无法确证，甚至有的地方理解有误！  一、浅说（这里说的是废话）数字类型​    我们日常中经常会使用的数字来进行各种计算，比如1，2，3等这些自然数，当然这些自然数都是整的，不会像小数1.1，2.5，3.21等等这样有小数点的零散的小数，这些大于0的数字都被称为正数。 ​    当然，有大于必然会">
@@ -356,8 +358,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T17:19:01+08:00">
-                2018-11-30
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T17:20:36+08:00">
+                2018-12-05
               </time>
             
           </span>
@@ -527,7 +529,7 @@
 <li>而赋值为1111的时候，两个变量的值保存的地址分别指向不同的（528和529）</li>
 <li>这就是为什么c==d为true，而e==f为false</li>
 </ul>
-<h2 id="一步一个脚印"><a href="#一步一个脚印" class="headerlink" title="一步一个脚印"></a>一步一个脚印</h2><h3 id="可以当是废话"><a href="#可以当是废话" class="headerlink" title="可以当是废话"></a>可以当是废话</h3><ol>
+<h2 id="一步一步"><a href="#一步一步" class="headerlink" title="一步一步"></a>一步一步</h2><h3 id="可以当是废话"><a href="#可以当是废话" class="headerlink" title="可以当是废话"></a>可以当是废话</h3><ol>
 <li>到此，并没有结束，并不是找到为什么c==d为true，e==f为false是因为前者是同一个对象，而后者是不同对象就结束了。这也仅仅是看到了表象原因</li>
 <li>由此，我们应该引发另一个问题：为什么同样是给Integer的对象赋值，都赋值为1的时候是同一个对象，而赋值为1111的时候确实两个不同的对象？</li>
 <li>这点是对于无从下手的人来说，思考到这里，我们应该怎么办？有经验的人肯定二话不说就去看源码去了，没错，答案肯定是在Integer的源码中。</li>
@@ -545,8 +547,31 @@
 <li>为了更全面，我们就举例三种，所以就又加了一个别的类型Date。能够在最后一张图看到，也有一个行为，是类加载行为。</li>
 <li>可能大家都看到不同的对象的行为，ide给我们展示的信息也不同，甚至有些乱，不过那也是没有办法的，它只会给我们展示最近有影响的行为，如我们代码中Integer c = 1，其实这一行代码有这么几个行为：声明Integer对象c，实例化对象c，然后给c赋值，而我们上面展示的是最后一个给c赋值的valueOf(int)。</li>
 <li>所以，如果有不知道该怎么去看源码的，可以借助这一点来去源码里面看一看，毕竟可以利用这一点找到跟我们程序有最直接关系的方法，然后以此为起点，慢慢往里看</li>
-<li></li>
 </ul>
+<h3 id="查看源码"><a href="#查看源码" class="headerlink" title="查看源码"></a>查看源码</h3><p>在调试中我们能看到，调用Integer的时候调用了valueOf(int)这个方法，那就来看一下这个方法究竟有什么神奇的地方： </p>
+<p>打开Integer类的源码，找到valueOf(int)</p>
+<p><img src="/2018/11/29/java整型封装类Integer的比较/12.png" alt=""></p>
+<p>在Integer类的源码中，重载了多个valueOf方法，不过都是调用了valueOf(int i)的方法来处理的。所以我们只要看这个方法就可以了 </p>
+<p>在源码中能够看到：当赋值i在IntegerCache.low和IntegerCache.high之间（二者都包括）的时候，是直接返回已存在的IntegerCache.cache[index]中的值（某一个对象），否则才会新建！  </p>
+<p>到了这一步，我想差不多应该已经明白是怎么回事了。 </p>
+<p>这里是Integer做的一个缓存，预先缓存一部分值，如果程序要使用的值在其中，那么直接就拿来用，否则的话才会新建一个对象赋值返回。</p>
+<p>所以我们能够判断出来，当给Integer a赋值1的时候，是没有超出IntegerCache.cache的范围的，而1111则超出了，所以导致一种是相同对象，一种是不同对象的结果。</p>
+<h3 id="Integer中整数缓存"><a href="#Integer中整数缓存" class="headerlink" title="Integer中整数缓存"></a>Integer中整数缓存</h3><p>不过这个范围到底是多少呢？</p>
+<p>那么既然提到这个问题了，我们就深究一下这个IntegerCache.cache到底怎么回事：</p>
+<p>那么就来看看IntegerCache的源码：</p>
+<p>在Integer类中有一个内部类，就是IntegerCache</p>
+<p>这个类的作用就是为Integer类提供一部分int类型的缓存，避免了重复创建对象的麻烦。</p>
+<p>下面请看源码：</p>
+<p><img src="/2018/11/29/java整型封装类Integer的比较/13.png" alt=""></p>
+<p>在源码中我们能够看到，首先IntegerCache设定了缓存最小值为-128(对于这个值，我想大家应该已经猜到了什么)</p>
+<p>没错，这是byte的最小临界点（最小值）</p>
+<p>那么high不用想了，很大可能就是127了</p>
+<p>当然，看了源码也能看到了，在静态块中经过处理，最大值high也是127</p>
+<p>所以在valueOf中，入参i如果满足-128&lt;=i&lt;=127，那么返回的对象都是同一个，数组cache中的某一个，否则就是new 一个对象</p>
+<p>所以就会出现如果Integer的值是在-128~127之间的时候用==判断为true，而其他的值==为false的现象</p>
+<h3 id="关于Integer缓存"><a href="#关于Integer缓存" class="headerlink" title="关于Integer缓存"></a>关于Integer缓存</h3><p>而对于Integer缓存大小的设置，也是可以自己设定的</p>
+<p>因为java不是直接运行在本地操作系统上的，而是运行在jvm上的，我们可以通过配置更改jvm的运行参数来改变。</p>
+<p>这个网上看看就好了，毕竟将缓存范围变大，那么意味着内存开销加剧，并且这部分缓存不会被gc回收的</p>
 
       
     </div>
@@ -780,7 +805,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、浅说（这里说的是废话）"><span class="nav-text">一、浅说（这里说的是废话）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数字类型"><span class="nav-text">数字类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java中代表数字的类型"><span class="nav-text">java中代表数字的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引子"><span class="nav-text">引子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、由该话题引发的补充"><span class="nav-text">二、由该话题引发的补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#疑问"><span class="nav-text">疑问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和-equals"><span class="nav-text">== 和 equals()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、实验实录"><span class="nav-text">三、实验实录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题现象"><span class="nav-text">问题现象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-先看int"><span class="nav-text">1. 先看int</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-再看Integer"><span class="nav-text">2. 再看Integer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-再看一次Integer"><span class="nav-text">3.再看一次Integer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-看看equals"><span class="nav-text">4.看看equals()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找原因"><span class="nav-text">查找原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#断点调试"><span class="nav-text">断点调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一步一个脚印"><span class="nav-text">一步一个脚印</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可以当是废话"><span class="nav-text">可以当是废话</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、浅说（这里说的是废话）"><span class="nav-text">一、浅说（这里说的是废话）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数字类型"><span class="nav-text">数字类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java中代表数字的类型"><span class="nav-text">java中代表数字的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引子"><span class="nav-text">引子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、由该话题引发的补充"><span class="nav-text">二、由该话题引发的补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#疑问"><span class="nav-text">疑问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和-equals"><span class="nav-text">== 和 equals()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、实验实录"><span class="nav-text">三、实验实录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题现象"><span class="nav-text">问题现象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-先看int"><span class="nav-text">1. 先看int</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-再看Integer"><span class="nav-text">2. 再看Integer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-再看一次Integer"><span class="nav-text">3.再看一次Integer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-看看equals"><span class="nav-text">4.看看equals()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找原因"><span class="nav-text">查找原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#断点调试"><span class="nav-text">断点调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一步一步"><span class="nav-text">一步一步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可以当是废话"><span class="nav-text">可以当是废话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看源码"><span class="nav-text">查看源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer中整数缓存"><span class="nav-text">Integer中整数缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Integer缓存"><span class="nav-text">关于Integer缓存</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

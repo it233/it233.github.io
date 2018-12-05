@@ -66,12 +66,10 @@
 
 
 
-  <meta name="keywords" content="let,const,实录,">
+  <meta name="keywords" content="实录,let,const,">
 
 
 
-
-  
 
 
   <link rel="alternate" href="/it233.github.io/atom.xml" title="浮梦之殇" type="application/atom+xml">
@@ -82,7 +80,7 @@
 
 
 <meta name="description" content="一、let &amp;amp; const1. let命令简述 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 中所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明">
-<meta name="keywords" content="let,const,实录">
+<meta name="keywords" content="实录,let,const">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端ES6学习及研究实录">
 <meta property="og:url" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/index.html">
@@ -101,7 +99,7 @@
 <meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/10.png">
 <meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/11.png">
 <meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/12.png">
-<meta property="og:updated_time" content="2018-12-05T08:07:11.848Z">
+<meta property="og:updated_time" content="2018-12-05T08:26:58.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端ES6学习及研究实录">
 <meta name="twitter:description" content="一、let &amp;amp; const1. let命令简述 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 中所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明">
@@ -359,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T16:07:11+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T16:26:58+08:00">
                 2018-12-05
               </time>
             
@@ -537,7 +535,7 @@
 <li>在循环中，let声明的a，只在本轮循环中有效，所以每次循环的a其实都是一个新的变量</li>
 <li>每次循环的a都是新的变量，却能够知道上一轮循环a的值，是因为JavaScript引擎内部会记住上一轮循环的值，初始化本轮的变量a时，就在上一轮循环的基础上进行计算</li>
 <li>for循环的特别之处：设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域</li>
-<li>使用let声明的变量，不会发生变量提升，所以在声明它之前，该变量是不存在的，如果在声明之前调用该变量，会报错</li>
+<li>使用let声明的变量，不会发生变量提升，所以在声明它之前，该变量相当于(为什么是相当于，看完后面希望理解)是不存在的，如果在声明之前调用该变量，会报错</li>
 <li>使用let声明的变量，在同一个区域之中是唯一的，即无论以哪种形式声明了变量a，在该区域中之后的代码里都无法再使用let声明变量a</li>
 </ol>
 <h2 id="2-暂时性死区"><a href="#2-暂时性死区" class="headerlink" title="2.暂时性死区"></a>2.暂时性死区</h2><h3 id="简述-1"><a href="#简述-1" class="headerlink" title="简述"></a>简述</h3><ul>
@@ -746,11 +744,11 @@
       
         <div class="post-tags">
           
+            <a href="/it233.github.io/tags/实录/" rel="tag"># 实录</a>
+          
             <a href="/it233.github.io/tags/let/" rel="tag"># let</a>
           
             <a href="/it233.github.io/tags/const/" rel="tag"># const</a>
-          
-            <a href="/it233.github.io/tags/实录/" rel="tag"># 实录</a>
           
         </div>
       
@@ -772,6 +770,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/it233.github.io/2018/12/05/变量的解构赋值/" rel="prev" title="变量的解构赋值">
+                变量的解构赋值 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -850,7 +852,7 @@
               
                 <a href="/it233.github.io/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

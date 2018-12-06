@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="实录,let,const,">
 
 
 
@@ -79,30 +79,31 @@
 
 
 
-<meta name="description" content="一、let &amp;amp; const1. let命令简述 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 众所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明">
+<meta name="description" content="let命令简述 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 众所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明的变量，只会在let命令所在的代码块内有">
+<meta name="keywords" content="实录,let,const">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端ES6学习及研究实录">
-<meta property="og:url" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/index.html">
+<meta property="og:title" content="let&amp;const">
+<meta property="og:url" content="https://it233.github.io/2018/12/04/let&const/index.html">
 <meta property="og:site_name" content="浮梦之殇">
-<meta property="og:description" content="一、let &amp;amp; const1. let命令简述 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 众所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明">
+<meta property="og:description" content="let命令简述 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 众所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明的变量，只会在let命令所在的代码块内有">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/1.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/2.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/3.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/4.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/5.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/6.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/7.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/8.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/9.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/10.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/11.png">
-<meta property="og:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/12.png">
-<meta property="og:updated_time" content="2018-12-05T08:36:21.648Z">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/1.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/2.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/3.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/4.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/5.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/6.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/7.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/8.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/9.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/10.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/11.png">
+<meta property="og:image" content="https://it233.github.io/2018/12/04/let&const/let&const/12.png">
+<meta property="og:updated_time" content="2018-12-06T02:54:32.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端ES6学习及研究实录">
-<meta name="twitter:description" content="一、let &amp;amp; const1. let命令简述 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 众所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明">
-<meta name="twitter:image" content="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/1.png">
+<meta name="twitter:title" content="let&amp;const">
+<meta name="twitter:description" content="let命令简述 ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。 而存在了var命令来声明变量，为什么还要有let命令。 众所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。 为了有效的规避此类的问题，特推出了let命令。使用let声明的变量，只会在let命令所在的代码块内有">
+<meta name="twitter:image" content="https://it233.github.io/2018/12/04/let&const/let&const/1.png">
 
 
 
@@ -132,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/">
+  <link rel="canonical" href="https://it233.github.io/2018/12/04/let&const/">
 
 
 
 
 
-  <title>前端ES6学习及研究实录 | 浮梦之殇</title>
+  <title>let&const | 浮梦之殇</title>
   
 
 
@@ -311,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://it233.github.io/it233.github.io/2018/12/04/前端ES6学习及研究实录/">
+    <link itemprop="mainEntityOfPage" href="https://it233.github.io/it233.github.io/2018/12/04/let&const/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="漠">
@@ -328,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端ES6学习及研究实录</h1>
+          <h1 class="post-title" itemprop="name headline">let&const</h1>
         
 
         <div class="post-meta">
@@ -356,12 +357,45 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T16:36:21+08:00">
-                2018-12-05
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-06T10:54:32+08:00">
+                2018-12-06
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/it233.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/it233.github.io/categories/前端/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -395,7 +429,7 @@
       
 
       
-        <h1 id="一、let-amp-const"><a href="#一、let-amp-const" class="headerlink" title="一、let &amp; const"></a>一、let &amp; const</h1><h2 id="1-let命令"><a href="#1-let命令" class="headerlink" title="1. let命令"></a>1. let命令</h2><h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p> ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。</p>
+        <h2 id="let命令"><a href="#let命令" class="headerlink" title="let命令"></a>let命令</h2><h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p> ES6新增了let命令用来生命变量，而在之前写js的时候，我们都习惯了使用var，而let的用法也与之相似。</p>
 <p>而存在了var命令来声明变量，为什么还要有let命令。</p>
 <p>众所周知，使用var的话会出现很多的问题，如变量提升导致的各种赋值、取值的错误问题等等，想必前端的这类问题遇到不少。</p>
 <p>为了有效的规避此类的问题，特推出了let命令。使用let声明的变量，只会在let命令所在的代码块内有效，也就是除了包含let命令的作用域，其他地方是访问不到这个变量的</p>
@@ -423,7 +457,7 @@
 <li>正常逻辑算下来应该是45+5 = 50</li>
 <li>结果呢？</li>
 </ol>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/1.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/1.png" alt=""></p>
 <p>我想，和我一样先学java后来学js的人，起初很痛苦吧。为什么呢？为什么呢？</p>
 <p>这个具体如何解释我也不太能理解，到底for循环的a与后面定义的a是否同一个？还是后面定义的把之前的给覆盖掉了？分不太清，只知道在等1s之后，执行b+=a的时候，拿到的a是5，最后赋值为5的那个a</p>
 <p>除此之外，还有一个比较好玩的是：把后面var a = 5去掉，又会出现另一个问题</p>
@@ -431,7 +465,7 @@
 <li>实验之前的那个循环把var改成let，会出现什么情况</li>
 </ul>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">b </span>= <span class="number">0</span></span><br><span class="line">for(let a = <span class="number">0</span><span class="comment">;a &lt;10;a++)&#123;</span></span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        <span class="keyword">b </span>+= a </span><br><span class="line">        console.log(<span class="string">"for-"</span>+a+<span class="string">":"</span>+<span class="keyword">b)</span></span><br><span class="line"><span class="keyword"> </span>   &#125;, <span class="number">1000</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">var a = <span class="number">5</span><span class="comment">;</span></span><br><span class="line"><span class="keyword">b+=a;</span></span><br><span class="line"><span class="keyword">console.log("0-9累加总和+5为："+b)</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/2.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/2.png" alt=""></p>
 <p>虽然顺序有问题（setTimeout()函数异步延时），但是最终结果是正确的</p>
 <ul>
 <li>好了，我们来看一下之前说的去掉后面定义的var会出现什么问题</li>
@@ -439,37 +473,37 @@
 <p>var：</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(<span class="name">var</span> a = <span class="number">0</span><span class="comment">;a &lt;10;a++)&#123;</span></span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(<span class="string">"for-"</span>+a)</span><br><span class="line">    &#125;, <span class="number">1000</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">console.log()</span><br></pre></td></tr></table></figure>
 <p>为了方便，我们只保留了循环，结果如下</p>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/3.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/3.png" alt=""></p>
 <p>let：</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(<span class="name">let</span> a = <span class="number">0</span><span class="comment">;a &lt;10;a++)&#123;</span></span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(<span class="string">"for-"</span>+a)</span><br><span class="line">    &#125;, <span class="number">1000</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">console.log()</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/4.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/4.png" alt=""></p>
 <p>为什么会出现这样的情况，别急，我们来调试一下看看会不会发现什么：</p>
 <p>我们先来看看var：</p>
 <ul>
 <li>断点就打在第一行，for，然后启动调试，注意看变量这块</li>
 </ul>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/5.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/5.png" alt=""></p>
 <p>在这里要说一下刚刚大家能够看到，我们这张图是启动调试之后未做任何操作的第一张图，但是这时候Local中就已经存在了a，这是为什么？是node.js在遇到变量声明的时候，会将声明放在第一行，先声明变量，然后在继续执行</p>
 <ul>
 <li>当我们走到第二行，那么a就创建成功了，我们来观察变量看看有什么值得注意的？</li>
 </ul>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/6.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/6.png" alt=""></p>
 <p>看到Local下面a。这是本地变量。而之前为undefined，通过第一行的赋值之后(声明被提升到了上面，所以第一行只完成了一个赋值)，它的值是0 </p>
 <ul>
 <li>接下来我们一直调试到第六行，然后能发现这个情况：</li>
 </ul>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/7.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/7.png" alt=""></p>
 <ul>
 <li>然后我们放开调试，直接执行到底</li>
 </ul>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/8.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/8.png" alt=""></p>
 <p>然后我们来看看let</p>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/9.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/9.png" alt=""></p>
 <ul>
 <li>调试走一步</li>
 </ul>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/10.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/10.png" alt=""></p>
 <p>这里出现了Block：这是块级作用域，ES6新加的，后面会说到。这就是不同，这样就说明这个for中声明的a就是只能作用在这个块中，其他地方用不了，也拿不到，所以结果是，不说了。都知道了</p>
 <h3 id="唯一性"><a href="#唯一性" class="headerlink" title="唯一性"></a>唯一性</h3><ul>
 <li>大家应该知道，使用var命令声明的变量，任何时候都可以重复声明，而所有变量都是指向同一个全局变量</li>
@@ -504,7 +538,7 @@
 <li>使用let声明的变量，不会发生变量提升，所以在声明它之前，该变量相当于(为什么是相当于，看完后面希望理解)是不存在的，如果在声明之前调用该变量，会报错</li>
 <li>使用let声明的变量，在同一个区域之中是唯一的，即无论以哪种形式声明了变量a，在该区域中之后的代码里都无法再使用let声明变量a</li>
 </ol>
-<h2 id="2-暂时性死区"><a href="#2-暂时性死区" class="headerlink" title="2.暂时性死区"></a>2.暂时性死区</h2><h3 id="简述-1"><a href="#简述-1" class="headerlink" title="简述"></a>简述</h3><ul>
+<h2 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h2><h3 id="简述-1"><a href="#简述-1" class="headerlink" title="简述"></a>简述</h3><ul>
 <li>所说的暂时性死区，就是在let命令声明变量之前，该变量都是不可用的，这一部分代码区间就称为暂时性死区</li>
 <li>例如有一段代码，有一块区域占据总代码的第10~30行，其中有let命令声明的变量在该区域的第20行，那么这块区域的第10~20行就是该变量的“暂时性死区”（temporal dead zone，TDZ）</li>
 </ul>
@@ -529,8 +563,8 @@
 <li>但是let变量在声明之前，虽然也是undefined，但是规定在死区中是无法调用的，会报错</li>
 </ol>
 <p>配图如下：</p>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/11.png" alt=""></p>
-<p><img src="/2018/12/04/前端ES6学习及研究实录/12.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/11.png" alt=""></p>
+<p><img src="/2018/12/04/let&const/let&amp;const/12.png" alt=""></p>
 <h3 id="关于隐蔽死区的示例"><a href="#关于隐蔽死区的示例" class="headerlink" title="关于隐蔽死区的示例"></a>关于隐蔽死区的示例</h3><h4 id="示例一、函数入参"><a href="#示例一、函数入参" class="headerlink" title="示例一、函数入参"></a>示例一、函数入参</h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function <span class="function"><span class="keyword">fun</span>(<span class="title">x</span></span> = y, y = <span class="number">2</span>)&#123;	<span class="regexp">//</span><span class="symbol">ReferenceError:</span> y is not defined</span><br><span class="line">    <span class="keyword">return</span> [x,y]</span><br><span class="line">&#125;</span><br><span class="line">a = <span class="function"><span class="keyword">fun</span>()</span></span><br><span class="line"><span class="function"><span class="title">console</span></span>.log(a)</span><br></pre></td></tr></table></figure>
 <p>以上代码的意思就是定义一个函数，这个函数有两个参数，x和y</p>
 <p>并且给两个参数默认值，x的默认值是y的值，y的默认值是2</p>
@@ -544,7 +578,7 @@
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = a</span><br><span class="line">console.log(a)　<span class="comment">//undefined</span></span><br><span class="line">let <span class="selector-tag">b</span> = <span class="selector-tag">b</span>		<span class="comment">//ReferenceError: b is not defined</span></span><br><span class="line">console.log(b)</span><br></pre></td></tr></table></figure>
 <p>这里依旧是死区的问题，上面的对比代码，var a= a赋值的时候运行正常，是因为var变量没有死区的</p>
 <p>而let b = b报错，是因为=后的b属于调用变量b，而这个区块中有声明b的let命令，所以在b没有完全声明之前调用了b，这就是一个死区</p>
-<h2 id="3-块级作用域"><a href="#3-块级作用域" class="headerlink" title="3.块级作用域"></a>3.块级作用域</h2><p>在ES5中只有全局作用域和函数作用域，没有块级作用域，这样会带来很多问题：</p>
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><p>在ES5中只有全局作用域和函数作用域，没有块级作用域，这样会带来很多问题：</p>
 <h3 id="问题一、内层变量可能会覆盖外层变量"><a href="#问题一、内层变量可能会覆盖外层变量" class="headerlink" title="问题一、内层变量可能会覆盖外层变量"></a>问题一、内层变量可能会覆盖外层变量</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = new Date();</span><br><span class="line">function <span class="function"><span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">    console.log(a)  <span class="comment">//Wed Dec 05 2018 14:21:35 GMT+0800 (中国标准时间) &#123;&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">fun</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <p>而如果是这样：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = new Date();</span><br><span class="line">function <span class="function"><span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">    console.log(a)	<span class="comment">//undefined</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">123</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">fun</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
@@ -588,7 +622,7 @@
 <h4 id="2-常量的值必须在声明的时候就立即初始化，不能留到以后赋值"><a href="#2-常量的值必须在声明的时候就立即初始化，不能留到以后赋值" class="headerlink" title="2.常量的值必须在声明的时候就立即初始化，不能留到以后赋值"></a>2.常量的值必须在声明的时候就立即初始化，不能留到以后赋值</h4><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a<span class="comment">;</span></span><br><span class="line">// SyntaxError: Missing initializer <span class="keyword">in</span> <span class="keyword">const</span> declaration</span><br></pre></td></tr></table></figure>
 <h3 id="const命令-1"><a href="#const命令-1" class="headerlink" title="const命令"></a>const命令</h3><p>####１.作用域</p>
 <p>const的作用域与let命令相同：只在声明所在的块级作用域有效</p>
-<h4 id="2-暂时性死区-1"><a href="#2-暂时性死区-1" class="headerlink" title="2.暂时性死区"></a>2.暂时性死区</h4><p>const命令声明的常量也是不提升，同样存在暂时性死区，只能在声明之后使用</p>
+<h4 id="2-暂时性死区"><a href="#2-暂时性死区" class="headerlink" title="2.暂时性死区"></a>2.暂时性死区</h4><p>const命令声明的常量也是不提升，同样存在暂时性死区，只能在声明之后使用</p>
 <h4 id="3-唯一性"><a href="#3-唯一性" class="headerlink" title="3.唯一性"></a>3.唯一性</h4><p>const声明的常量,也与let一样,在同一块级区域中不可重复声明，具有唯一性</p>
 <h2 id="const本质"><a href="#const本质" class="headerlink" title="const本质"></a>const本质</h2><h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>做过后台，有研究过常量的人，应该知道，所说的常量，指的就是这个变量在栈中保存的值不会改变。而如果是指向某个对象的话，那么就是执行某个对象的地址不能改变，而对象中的属性可以随意改变。</p>
 <h3 id="简述-2"><a href="#简述-2" class="headerlink" title="简述"></a>简述</h3><p>const实际上也是如此，并不是变量的值不得改动，而是变量指向的那个内存地址所保存的书怒不得改动。</p>
@@ -695,7 +729,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://it233.github.io/2018/12/04/前端ES6学习及研究实录/" title="前端ES6学习及研究实录">https://it233.github.io/2018/12/04/前端ES6学习及研究实录/</a>
+    <a href="https://it233.github.io/2018/12/04/let&const/" title="let&const">https://it233.github.io/2018/12/04/let&const/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -708,6 +742,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/it233.github.io/tags/实录/" rel="tag"># 实录</a>
+          
+            <a href="/it233.github.io/tags/let/" rel="tag"># let</a>
+          
+            <a href="/it233.github.io/tags/const/" rel="tag"># const</a>
+          
+        </div>
+      
 
       
       
@@ -717,8 +761,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/it233.github.io/2018/11/29/java整型封装类Integer的比较/" rel="next" title="java整型封装类Integer的比较">
-                <i class="fa fa-chevron-left"></i> java整型封装类Integer的比较
+              <a href="/it233.github.io/2018/12/04/前端ES6学习及研究实录/" rel="next" title="前端ES6学习及研究实录">
+                <i class="fa fa-chevron-left"></i> 前端ES6学习及研究实录
               </a>
             
           </div>
@@ -727,8 +771,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/it233.github.io/2018/12/04/let&const/" rel="prev" title="let&const">
-                let&const <i class="fa fa-chevron-right"></i>
+              <a href="/it233.github.io/2018/12/05/变量的解构赋值/" rel="prev" title="变量的解构赋值">
+                变量的解构赋值 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -870,7 +914,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、let-amp-const"><span class="nav-text">一、let &amp; const</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-let命令"><span class="nav-text">1. let命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述"><span class="nav-text">简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实验"><span class="nav-text">代码实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题研究"><span class="nav-text">问题研究</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析解释"><span class="nav-text">分析解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#唯一性"><span class="nav-text">唯一性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-暂时性死区"><span class="nav-text">2.暂时性死区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述-1"><span class="nav-text">简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量绑定区域与TDZ"><span class="nav-text">变量绑定区域与TDZ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于隐蔽死区的示例"><span class="nav-text">关于隐蔽死区的示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例一、函数入参"><span class="nav-text">示例一、函数入参</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-块级作用域"><span class="nav-text">3.块级作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题一、内层变量可能会覆盖外层变量"><span class="nav-text">问题一、内层变量可能会覆盖外层变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题二、区块变量泄露为全局变量"><span class="nav-text">问题二、区块变量泄露为全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6的块级作用域"><span class="nav-text">ES6的块级作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级作用域与函数声明"><span class="nav-text">块级作用域与函数声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const命令"><span class="nav-text">const命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const常量注意点"><span class="nav-text">const常量注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-常量一旦声明之后，就不能改变"><span class="nav-text">1. 常量一旦声明之后，就不能改变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常量的值必须在声明的时候就立即初始化，不能留到以后赋值"><span class="nav-text">2.常量的值必须在声明的时候就立即初始化，不能留到以后赋值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const命令-1"><span class="nav-text">const命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-暂时性死区-1"><span class="nav-text">2.暂时性死区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-唯一性"><span class="nav-text">3.唯一性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const本质"><span class="nav-text">const本质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题外话"><span class="nav-text">题外话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简述-2"><span class="nav-text">简述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冻结对象"><span class="nav-text">冻结对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6-声明变量的六种方法"><span class="nav-text">ES6 声明变量的六种方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顶层对象"><span class="nav-text">顶层对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶层对象的属性"><span class="nav-text">顶层对象的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#global对象"><span class="nav-text">global对象</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#let命令"><span class="nav-text">let命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述"><span class="nav-text">简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实验"><span class="nav-text">代码实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题研究"><span class="nav-text">问题研究</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析解释"><span class="nav-text">分析解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#唯一性"><span class="nav-text">唯一性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#暂时性死区"><span class="nav-text">暂时性死区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述-1"><span class="nav-text">简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量绑定区域与TDZ"><span class="nav-text">变量绑定区域与TDZ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于隐蔽死区的示例"><span class="nav-text">关于隐蔽死区的示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例一、函数入参"><span class="nav-text">示例一、函数入参</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级作用域"><span class="nav-text">块级作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题一、内层变量可能会覆盖外层变量"><span class="nav-text">问题一、内层变量可能会覆盖外层变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题二、区块变量泄露为全局变量"><span class="nav-text">问题二、区块变量泄露为全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6的块级作用域"><span class="nav-text">ES6的块级作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级作用域与函数声明"><span class="nav-text">块级作用域与函数声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const命令"><span class="nav-text">const命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const常量注意点"><span class="nav-text">const常量注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-常量一旦声明之后，就不能改变"><span class="nav-text">1. 常量一旦声明之后，就不能改变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常量的值必须在声明的时候就立即初始化，不能留到以后赋值"><span class="nav-text">2.常量的值必须在声明的时候就立即初始化，不能留到以后赋值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const命令-1"><span class="nav-text">const命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-暂时性死区"><span class="nav-text">2.暂时性死区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-唯一性"><span class="nav-text">3.唯一性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const本质"><span class="nav-text">const本质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题外话"><span class="nav-text">题外话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简述-2"><span class="nav-text">简述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冻结对象"><span class="nav-text">冻结对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6-声明变量的六种方法"><span class="nav-text">ES6 声明变量的六种方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顶层对象"><span class="nav-text">顶层对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶层对象的属性"><span class="nav-text">顶层对象的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#global对象"><span class="nav-text">global对象</span></a></li></ol></li></ol></div>
             
 
           </div>

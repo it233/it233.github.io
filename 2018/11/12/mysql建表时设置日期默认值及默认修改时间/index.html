@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="[TOC] #一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前">
+<meta name="description" content="[TOC] 一、简单说明在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。  关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，">
 <meta name="keywords" content="mysql,日期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql建表时设置日期默认值及默认修改时间">
 <meta property="og:url" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/index.html">
 <meta property="og:site_name" content="浮梦之殇">
-<meta property="og:description" content="[TOC] #一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前">
+<meta property="og:description" content="[TOC] 一、简单说明在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。  关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql日期和时间类型.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png">
@@ -97,10 +97,10 @@
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-default-cur.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/default-update-insert.png">
 <meta property="og:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/default-update.png">
-<meta property="og:updated_time" content="2018-11-28T07:16:50.762Z">
+<meta property="og:updated_time" content="2018-12-06T09:42:05.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql建表时设置日期默认值及默认修改时间">
-<meta name="twitter:description" content="[TOC] #一、简单说明    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。 关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前">
+<meta name="twitter:description" content="[TOC] 一、简单说明在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。  关于这次记录的东西，就是mysql中时间格式的默认值。  很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，">
 <meta name="twitter:image" content="https://it233.github.io/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql日期和时间类型.png">
 
 
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-28T15:16:50+08:00">
-                2018-11-28
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-06T17:42:05+08:00">
+                2018-12-06
               </time>
             
           </span>
@@ -428,24 +428,22 @@
 
       
         <p>[TOC]</p>
-<p>#一、简单说明<br>    在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。</p>
-<pre><code>关于这次记录的东西，就是mysql中时间格式的默认值。
+<h1 id="一、简单说明"><a href="#一、简单说明" class="headerlink" title="一、简单说明"></a>一、简单说明</h1><pre><code>在做项目的时候，在数据库中基本上都会有关于日期的问题。其中不乏包括日期格式、运算、比较等等。不过这些都很常见了，今天要记录的点，非常简单，不过可能也是很多情况下忽略的东西。
+
+关于这次记录的东西，就是mysql中时间格式的默认值。
 
 很多时候，我们都会对一条数据的相关时间进行记录，比如创建日期，修改日期等等最常见的。而处理这些日期的大部分方法，一般是在后台中获取当前的时间，然后随着数据插入到表中进行保存。
 
 下面，要说的是用mysql自带的方法来实现。（如果觉得没多大意义的话，请止步到此吧，如果想了解一下，请继续）
-</code></pre><p>#二、图文示例</p>
-<pre><code>这里使用的版本是MySQL 5.6
-</code></pre><p>###1.mysql的日期和时间类型（这里会展示一下各种时间格式，不想看的跳过）</p>
-<pre><code>先来看一下mysql中的日期和时间类型，以及其值的样子
+</code></pre><h1 id="二、图文示例"><a href="#二、图文示例" class="headerlink" title="二、图文示例"></a>二、图文示例</h1><pre><code>这里使用的版本是MySQL 5.6
+</code></pre><h3 id="1-mysql的日期和时间类型（这里会展示一下各种时间格式，不想看的跳过）"><a href="#1-mysql的日期和时间类型（这里会展示一下各种时间格式，不想看的跳过）" class="headerlink" title="1.mysql的日期和时间类型（这里会展示一下各种时间格式，不想看的跳过）"></a>1.mysql的日期和时间类型（这里会展示一下各种时间格式，不想看的跳过）</h3><pre><code>先来看一下mysql中的日期和时间类型，以及其值的样子
 </code></pre><p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql日期和时间类型.png" alt="mysql的日期和时间类型"></p>
 <pre><code>- 在图中我们能够看到，我给所有的日期和时间类型赋值都是年/月/日 时:分:秒.毫秒
 
 - 而最终查询出来的日期格式如列表展示，不同的类型，格式也不同
 
 - 其中year类型只能赋值并保存年份，不过这个字段的赋值有点有意思的地方
-</code></pre><p>####1.1 year类型</p>
-<pre><code>我们先来看看不同的赋值的结果
+</code></pre><h4 id="1-1-year类型"><a href="#1-1-year类型" class="headerlink" title="1.1 year类型"></a>1.1 year类型</h4><pre><code>我们先来看看不同的赋值的结果
 </code></pre><p>1.首先赋值0</p>
 <p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-year-0.png" alt="mysql-year-0"></p>
 <p>2.然后1</p>
@@ -458,8 +456,7 @@
 <p>4.完整年份最大值</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不要问我怎么来的，我无聊</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-time-maxvalue.png" alt="mysql-time-maxvalue.png"></p>
-<p>###2.正题：设置默认时间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个设置是创建该数据的当前时间</span><br></pre></td></tr></table></figure>
+<h3 id="2-正题：设置默认时间"><a href="#2-正题：设置默认时间" class="headerlink" title="2.正题：设置默认时间"></a>2.正题：设置默认时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个设置是创建该数据的当前时间</span><br></pre></td></tr></table></figure>
 <p>1.使用函数now()</p>
 <figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql中有函数可以在sql语句中直接使用（废话不解释了），<span class="built_in">now</span>()都不陌生</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/11/12/mysql建表时设置日期默认值及默认修改时间/mysql-default-now.png" alt="mysql-default-now.png"></p>
@@ -618,8 +615,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -688,6 +694,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、简单说明"><span class="nav-text">一、简单说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、图文示例"><span class="nav-text">二、图文示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-mysql的日期和时间类型（这里会展示一下各种时间格式，不想看的跳过）"><span class="nav-text">1.mysql的日期和时间类型（这里会展示一下各种时间格式，不想看的跳过）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-year类型"><span class="nav-text">1.1 year类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-正题：设置默认时间"><span class="nav-text">2.正题：设置默认时间</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

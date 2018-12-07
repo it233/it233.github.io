@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="所见之事 所感之物">
+<meta name="description" content="ES6 加强了对Unicode的支持，并且扩展了字符串对象 字符串的Unicode表示法javaScript允许采用 \uxxxx 形式表示一个字符，其中xxxx表示字符的Unicode码点 12&quot;\u0061&quot;// &quot;a&quot; 但是，这种表示法只限于码点在 \u0000 ~ \uFFFF之间的字符，超出这个范围的字符串必须用两个双字节的形式表示 12345&quot;\uD842\uDFB7&quot;// &quot;𠮷&quot;&quot;">
 <meta name="keywords" content="实录,字符串扩展">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符串的扩展">
 <meta property="og:url" content="https://it233.github.io/2018/12/07/字符串的扩展/index.html">
 <meta property="og:site_name" content="浮梦之殇">
-<meta property="og:description" content="所见之事 所感之物">
+<meta property="og:description" content="ES6 加强了对Unicode的支持，并且扩展了字符串对象 字符串的Unicode表示法javaScript允许采用 \uxxxx 形式表示一个字符，其中xxxx表示字符的Unicode码点 12&quot;\u0061&quot;// &quot;a&quot; 但是，这种表示法只限于码点在 \u0000 ~ \uFFFF之间的字符，超出这个范围的字符串必须用两个双字节的形式表示 12345&quot;\uD842\uDFB7&quot;// &quot;𠮷&quot;&quot;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-07T02:51:17.753Z">
+<meta property="og:updated_time" content="2018-12-07T08:42:39.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串的扩展">
-<meta name="twitter:description" content="所见之事 所感之物">
+<meta name="twitter:description" content="ES6 加强了对Unicode的支持，并且扩展了字符串对象 字符串的Unicode表示法javaScript允许采用 \uxxxx 形式表示一个字符，其中xxxx表示字符的Unicode码点 12&quot;\u0061&quot;// &quot;a&quot; 但是，这种表示法只限于码点在 \u0000 ~ \uFFFF之间的字符，超出这个范围的字符串必须用两个双字节的形式表示 12345&quot;\uD842\uDFB7&quot;// &quot;𠮷&quot;&quot;">
 
 
 
@@ -344,7 +344,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-07T10:51:17+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-07T16:42:39+08:00">
                 2018-12-07
               </time>
             
@@ -416,7 +416,27 @@
       
 
       
-        
+        <p>ES6 加强了对Unicode的支持，并且扩展了字符串对象</p>
+<h1 id="字符串的Unicode表示法"><a href="#字符串的Unicode表示法" class="headerlink" title="字符串的Unicode表示法"></a>字符串的Unicode表示法</h1><p>javaScript允许采用 \uxxxx 形式表示一个字符，其中xxxx表示字符的Unicode码点</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"\u0061"</span></span><br><span class="line"><span class="comment">// "a"</span></span><br></pre></td></tr></table></figure>
+<p>但是，这种表示法只限于码点在 \u0000 ~ \uFFFF之间的字符，超出这个范围的字符串必须用两个双字节的形式表示</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"\uD842\uDFB7"</span></span><br><span class="line"><span class="regexp">//</span> <span class="string">"𠮷"</span></span><br><span class="line"></span><br><span class="line"><span class="string">"\u20BB7"</span></span><br><span class="line"><span class="regexp">//</span> <span class="string">" 7"</span></span><br></pre></td></tr></table></figure>
+<p>如上，如果\u后面跟上超过0xFFFF的数值（如：\20BB7），JavaScript会理解成\u20BB+7</p>
+<p>由于\u20BB是一个不可打印字符，所以只会显示一个空格，后面跟一个7</p>
+<p>ES6 对这一点做出了改进，只要将码点放入大括号，就能正确解读该字符。 </p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">"<span class="tag">\<span class="name">u</span><span class="string">&#123;20BB7&#125;</span></span>"</span><br><span class="line">// "𠮷"</span><br><span class="line"></span><br><span class="line">"<span class="tag">\<span class="name">u</span><span class="string">&#123;41&#125;</span></span><span class="tag">\<span class="name">u</span><span class="string">&#123;42&#125;</span></span><span class="tag">\<span class="name">u</span><span class="string">&#123;43&#125;</span></span>"</span><br><span class="line">// "ABC"</span><br><span class="line"></span><br><span class="line">let hello = 123;</span><br><span class="line">hell<span class="tag">\<span class="name">u</span><span class="string">&#123;6F&#125;</span></span> // 123</span><br><span class="line"></span><br><span class="line">'<span class="tag">\<span class="name">u</span><span class="string">&#123;1F680&#125;</span></span>' === '<span class="tag">\<span class="name">uD</span></span>83D<span class="tag">\<span class="name">uDE</span></span>80'</span><br><span class="line">// true</span><br></pre></td></tr></table></figure>
+<p>上面代码中，最后一个例子表明，大括号表示法与四字节的 UTF-16 编码是等价的。</p>
+<p>有了这种表示法之后，JavaScript 共有 6 种方法可以表示一个字符。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">"<span class="tag">\<span class="name">u</span><span class="string">&#123;20BB7&#125;</span></span>"</span><br><span class="line">// "𠮷"</span><br><span class="line"></span><br><span class="line">"<span class="tag">\<span class="name">u</span><span class="string">&#123;41&#125;</span></span><span class="tag">\<span class="name">u</span><span class="string">&#123;42&#125;</span></span><span class="tag">\<span class="name">u</span><span class="string">&#123;43&#125;</span></span>"</span><br><span class="line">// "ABC"</span><br><span class="line"></span><br><span class="line">let hello = 123;</span><br><span class="line">hell<span class="tag">\<span class="name">u</span><span class="string">&#123;6F&#125;</span></span> // 123</span><br><span class="line"></span><br><span class="line">'<span class="tag">\<span class="name">u</span><span class="string">&#123;1F680&#125;</span></span>' === '<span class="tag">\<span class="name">uD</span></span>83D<span class="tag">\<span class="name">uDE</span></span>80'</span><br><span class="line">// true</span><br></pre></td></tr></table></figure>
+<p>上面代码中，最后一个例子表明，大括号表示法与四字节的 UTF-16 编码是等价的。</p>
+<p>有了这种表示法之后，JavaScript 共有 6 种方法可以表示一个字符。</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">'\z' === 'z'  <span class="comment">// true</span></span><br><span class="line">'\172' === 'z' <span class="comment">// true</span></span><br><span class="line">'\x7A' === 'z' <span class="comment">// true</span></span><br><span class="line">'\u007A' === 'z' <span class="comment">// true</span></span><br><span class="line">'\u&#123;7A&#125;' === 'z' <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h1 id="codePointAt"><a href="#codePointAt" class="headerlink" title="codePointAt()"></a>codePointAt()</h1><p>JavaScript 内部，字符以 UTF-16 的格式储存，每个字符固定为<code>2</code>个字节。对于那些需要<code>4</code>个字节储存的字符（Unicode 码点大于<code>0xFFFF</code>的字符），JavaScript 会认为它们是两个字符。 </p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var s = <span class="string">"𠮷"</span>;</span><br><span class="line"></span><br><span class="line">s.length <span class="comment">// 2</span></span><br><span class="line">s.charAt(<span class="number">0</span>) <span class="comment">// ''</span></span><br><span class="line">s.charAt(<span class="number">1</span>) <span class="comment">// ''</span></span><br><span class="line">s.charCodeAt(<span class="number">0</span>) <span class="comment">// 55362</span></span><br><span class="line">s.charCodeAt(<span class="number">1</span>) <span class="comment">// 57271</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，汉字“𠮷”（注意，这个字不是“吉祥”的“吉”）的码点是<code>0x20BB7</code>，UTF-16 编码为<code>0xD842 0xDFB7</code>（十进制为<code>55362 57271</code>），需要<code>4</code>个字节储存。对于这种<code>4</code>个字节的字符，JavaScript 不能正确处理，字符串长度会误判为<code>2</code>，而且<code>charAt</code>方法无法读取整个字符，<code>charCodeAt</code>方法只能分别返回前两个字节和后两个字节的值。 </p>
+<p>ES6 提供了<code>codePointAt</code>方法，能够正确处理 4 个字节储存的字符，返回一个字符的码点。 </p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let s = '𠮷a';</span><br><span class="line"></span><br><span class="line">s.codePointAt(<span class="number">0</span>) <span class="comment">// 134071</span></span><br><span class="line">s.codePointAt(<span class="number">1</span>) <span class="comment">// 57271</span></span><br><span class="line"></span><br><span class="line">s.codePointAt(<span class="number">2</span>) <span class="comment">// 97</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -558,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -628,6 +657,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串的Unicode表示法"><span class="nav-text">字符串的Unicode表示法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#codePointAt"><span class="nav-text">codePointAt()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

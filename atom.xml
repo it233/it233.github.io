@@ -6,7 +6,7 @@
   <link href="/it233.github.io/atom.xml" rel="self"/>
   
   <link href="https://it233.github.io/"/>
-  <updated>2018-12-17T08:55:46.189Z</updated>
+  <updated>2018-12-17T10:09:04.245Z</updated>
   <id>https://it233.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于js浮点计算解析实录</title>
+    <link href="https://it233.github.io/2018/12/17/%E5%85%B3%E4%BA%8Ejs%E6%B5%AE%E7%82%B9%E8%AE%A1%E7%AE%97%E8%A7%A3%E6%9E%90%E5%AE%9E%E5%BD%95/"/>
+    <id>https://it233.github.io/2018/12/17/关于js浮点计算解析实录/</id>
+    <published>2018-12-17T09:42:42.000Z</published>
+    <updated>2018-12-17T10:09:04.245Z</updated>
+    
+    <content type="html"><![CDATA[<p>直奔话题：</p><p>这次记录的是关于浮点（小数）计算，而做前端的人都会遇到，两个小数直接进行运算可能会出现这样或那样的精确度的问题，也很苦恼，这里属于个人兴趣，实录研究了一下，仅此将整个研究过程记录下来</p><p>我们就以最简单的为例，来进行展示：0.1+0.2=？？？</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="number">0.1</span>+<span class="number">0.2</span>)<span class="comment">//0.30000000000000004</span></span><br></pre></td></tr></table></figure><p>结果不是0.3，而是约等于0.3的值，为什么会这样呢？</p><p>在网上查了很多资料，我们应该知道，数值类型在计算机中的保存形式是二进制</p><p>于是就研究了一下关于二进制的相关信息</p><p>好了，由于研究的时候用了很多时间才搞明白原因，所以时间不多，废话不多说，直接展示</p><p>首先我们来看一下0.1和0.2以及0.3的二进制</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="number">0.1</span>.toString(<span class="number">2</span>))<span class="comment">//0.0001100110011001100110011001100110011001100110011001101</span></span><br><span class="line">console.log(<span class="number">0.2</span>.toString(<span class="number">2</span>))<span class="comment">//0.001100110011001100110011001100110011001100110011001101</span></span><br><span class="line">console.log(<span class="number">0.3</span>.toString(<span class="number">2</span>))<span class="comment">//0.010011001100110011001100110011001100110011001100110011</span></span><br></pre></td></tr></table></figure><p>哇，好长，而且有没有发现，0.1的二进制和0.2的二进制长度不一样，少了一位？</p><p>好吧，先解释一下：</p><p>0.1的二进制就是：0.000 1100 1100 1100 1100  ….（后面是无限循环的） </p><p>0.2的二进制就是：0.001 1001 1001 1001 1001  ….（后面是无限循环的）</p><p>这就造成了一种后果：无限循环的数字怎么能完全地表示出来？答案肯定是不可能的嘛，就算我们能够跟数学中一样，用循环符号来表示无限循环小数，但是我们做运算的时候怎么办？还不是要≈（没错，约等于）</p><p>那么我们约等于的时候也要知道要在哪一位截断，别急，IEEE 754 标准的 64 位双精度浮点数的小数部分最多支持 53 位二进制位</p><p>为了验证一下，我们来看看0.1+0.2计算之后的值转换为二进制是多少位吧</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log((<span class="number">0.1</span>+<span class="number">0.2</span>).toString(<span class="number">2</span>).length) <span class="comment">//54</span></span><br></pre></td></tr></table></figure><p>是54位，为什么？因为我们转为了string，连小数点(.)也算进去了，所以二进制数字还是53位，好了，这个不纠结，想弄明白可以去找找小数在计算机中的存储形式看看吧，我也没看过呢</p><p>这样的话，我们就把0.1和0.2各自的二进制截取一下：</p><p>//0.000 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1|101</p><p>//0.001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1|01</p><p>上面是我标记的要截取的位置，用“|”符号隔开，后面的就是要舍弃的</p><p>我们都知道，约等于一般都是四舍五入，那么二进制怎么四舍五入呢？很简单，十进制五入，因为五是十的一般，那么二进制的一般就是1，所以是1就进一位，所以结果就是</p><p>//0.000 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1101 0</p><p>//0.001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1</p><p>计算一下结果：</p><p>就跟十进制一样相加，只不过是满二进一</p><p>//0.010 0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 1</p><p>这个结果转换一下成十进制：</p><p><img src="/2018/12/17/关于js浮点计算解析实录/0.png" alt=""></p><p>其他的可以自行计算，按照这个方法实际体验一下</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;直奔话题：&lt;/p&gt;
+&lt;p&gt;这次记录的是关于浮点（小数）计算，而做前端的人都会遇到，两个小数直接进行运算可能会出现这样或那样的精确度的问题，也很苦恼，这里属于个人兴趣，实录研究了一下，仅此将整个研究过程记录下来&lt;/p&gt;
+&lt;p&gt;我们就以最简单的为例，来进行展示：0.1+0.2=
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="https://it233.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JS" scheme="https://it233.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+    
+    
+      <category term="实录" scheme="https://it233.github.io/tags/%E5%AE%9E%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>函数的扩展</title>

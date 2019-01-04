@@ -432,7 +432,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这里我们将润Async2()异步操作中执行reject</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">runAsync2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//做一些异步操作</span></span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'异步任务2执行完成'</span>);</span><br><span class="line">            <span class="comment">// resolve('随便什么数据2');</span></span><br><span class="line">            reject(<span class="string">"2错了"</span>)</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> p;            </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//异常捕获一下</span></span><br><span class="line"><span class="built_in">Promise</span></span><br><span class="line">.all([runAsync1(), runAsync2(), runAsync3()])</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">results</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(results);</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/12/17/ES6Promise用法介绍/8.png" alt="img"></p>
 <h2 id="race的用法"><a href="#race的用法" class="headerlink" title="race的用法"></a><strong>race的用法</strong></h2><p>all方法的效果实际上是「谁跑的慢，以谁为准执行回调」，那么相对的就有另一个方法「谁跑的快，以谁为准执行回调」，这就是race方法，这个词本来就是赛跑的意思。race的用法与all一样，我们把上面runAsync1的延时改为1秒来看一下：</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Promise</span><br><span class="line">.race([runAsync1(), runAsync2(), runAsync3()])</span><br><span class="line">.<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(results)</span></span>&#123;</span><br><span class="line">    console.<span class="built_in">log</span>(results);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span></span><br><span class="line">.race([runAsync1(), runAsync2(), runAsync3()])</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">results</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(results);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>这三个异步操作同样是并行执行的。结果你应该可以猜到，1秒后runAsync1已经执行完了，此时then里面的就执行了。结果是这样的：</p>
 <p><img src="/2018/12/17/ES6Promise用法介绍/7.png" alt="img"></p>
 <p>你猜对了吗？不完全，是吧。在then里面的回调开始执行时，runAsync2()和runAsync3()并没有停止，仍旧再执行。于是再过1秒后，输出了他们结束的标志。</p>
@@ -612,7 +612,7 @@
               
                 <a href="/it233.github.io/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -634,7 +634,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/it233.github.io/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -696,7 +696,7 @@
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright" style="display:inline-block;text-align:right;"> &copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright" style="display:inline-block;text-align:right;"> &copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

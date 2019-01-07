@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/it233.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/it233.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/it233.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/it233.github.io/images/user.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/it233.github.io/images/user.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/it233.github.io/images/user.jpg?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/it233.github.io/atom.xml" title="浮梦之殇" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="详解 RestTemplate 操作作为开发人员，我们经常关注于构建伟大的软件来解决业务问题。数据只是软件完成工作时要处理的原材料。但是如果你问一下业务人员，数据和软件谁更重要的话，他们很可能会选择数据。数据是许多业务的生命之血。软件通常是可以替换的，但是多年积累的数据是永远不能替换的。 近几年来,以信息为中心的表述性状态转移(Representational State Transfer，RES">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详解RestTemplate操作">
+<meta property="og:url" content="https://it233.github.io/2019/01/07/详解RestTemplate操作/index.html">
+<meta property="og:site_name" content="浮梦之殇">
+<meta property="og:description" content="详解 RestTemplate 操作作为开发人员，我们经常关注于构建伟大的软件来解决业务问题。数据只是软件完成工作时要处理的原材料。但是如果你问一下业务人员，数据和软件谁更重要的话，他们很可能会选择数据。数据是许多业务的生命之血。软件通常是可以替换的，但是多年积累的数据是永远不能替换的。 近几年来,以信息为中心的表述性状态转移(Representational State Transfer，RES">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://it233.github.io/2019/01/07/详解RestTemplate操作/1.png">
+<meta property="og:image" content="https://it233.github.io/2019/01/07/详解RestTemplate操作/2.png">
+<meta property="og:image" content="https://it233.github.io/2019/01/07/详解RestTemplate操作/3.png">
+<meta property="og:image" content="https://it233.github.io/2019/01/07/详解RestTemplate操作/4.png">
+<meta property="og:updated_time" content="2019-01-07T03:49:44.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详解RestTemplate操作">
+<meta name="twitter:description" content="详解 RestTemplate 操作作为开发人员，我们经常关注于构建伟大的软件来解决业务问题。数据只是软件完成工作时要处理的原材料。但是如果你问一下业务人员，数据和软件谁更重要的话，他们很可能会选择数据。数据是许多业务的生命之血。软件通常是可以替换的，但是多年积累的数据是永远不能替换的。 近几年来,以信息为中心的表述性状态转移(Representational State Transfer，RES">
+<meta name="twitter:image" content="https://it233.github.io/2019/01/07/详解RestTemplate操作/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/it233.github.io/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://it233.github.io/2019/01/07/详解RestTemplate操作/">
+
+
+
+
+
+  <title>详解RestTemplate操作 | 浮梦之殇</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+
+
+
+<div id="background-image-div"></div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/it233.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">浮梦之殇</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/it233.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/it233.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/it233.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/it233.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/it233.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://it233.github.io/it233.github.io/2019/01/07/详解RestTemplate操作/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="漠">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/it233.github.io/images/user.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浮梦之殇">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">详解RestTemplate操作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-07T11:11:40+08:00">
+                2019-01-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-07T11:49:44+08:00">
+                2019-01-07
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/it233.github.io/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="详解-RestTemplate-操作"><a href="#详解-RestTemplate-操作" class="headerlink" title="详解 RestTemplate 操作"></a>详解 RestTemplate 操作</h1><p>作为开发人员，我们经常关注于构建伟大的软件来解决业务问题。数据只是软件完成工作时<br>要处理的原材料。但是如果你问一下业务人员，数据和软件谁更重要的话，他们很可能会选择<br>数据。数据是许多业务的生命之血。软件通常是可以替换的，但是多年积累的数据是永远不能<br>替换的。</p>
+<p>近几年来,以信息为中心的表述性状态转移(Representational State Transfer，REST)已经称为替代传统SOAP Web 服务的流行方案.<br>SOAP关注的一般是行为和处理,而REST关注的是要处理的数据.</p>
+<p>从Spring3.0开始,Spring为创建Rest API提供了良好的支持.</p>
+<p>REST提供了一个更简单的可选方案。另外，很多的现代化应用都会有移动或富JavaScript客户端，它们都会使用运行在服务器上REST API。</p>
+<h1 id="REST的基础知识"><a href="#REST的基础知识" class="headerlink" title="REST的基础知识"></a>REST的基础知识</h1><p>参考这篇文章: Restful API 设计指南</p>
+<p>当谈论REST时，有一种常见的错误就是将其视为“基于URL的Web服务”——将REST作为另一<br>种类型的远程过程调用（remote procedure call，RPC）机制，就像SOAP一样，只不过是通过简单<br>的HTTP URL来触发，而不是使用SOAP大量的XML命名空间</p>
+<p>恰好相反，REST与RPC几乎没有任何关系。RPC是面向服务的，并关注于行为和动作；而REST<br>是面向资源的，强调描述应用程序的事物和名词。</p>
+<p>更简洁地讲，REST就是将资源的状态以最适合客户端或服务端的形式从服务器端转移到客户<br>端（或者反过来）。</p>
+<p>在REST中，资源通过URL进行识别和定位。至于RESTful URL的结构并没有严格的规则，但是<br>URL应该能够识别资源，而不是简单的发一条命令到服务器上。再次强调，关注的核心是事<br>物，而不是行为。</p>
+<h1 id="Spring-中如何使用Rest资源"><a href="#Spring-中如何使用Rest资源" class="headerlink" title="Spring 中如何使用Rest资源"></a>Spring 中如何使用Rest资源</h1><p>借助 RestTemplate，Spring应用能够方便地使用REST资源<br>Spring的 RestTemplate访问使用了模版方法的设计模式.</p>
+<p>模版方法将过程中与特定实现相关的部分委托给接口,而这个接口的不同实现定义了接口的不同行为.</p>
+<p>RestTemplate定义了36个与REST资源交互的方法，其中的大多数都对应于HTTP的方法。<br>其实，这里面只有11个独立的方法，其中有十个有三种重载形式，而第十一个则重载了六次，这样一共形成了36个方法。</p>
+<ol>
+<li><p>delete() </p>
+<p>在特定的URL上对资源执行HTTP DELETE操作</p>
+</li>
+<li><p>exchange() </p>
+<p>在URL上执行特定的HTTP方法，返回包含对象的ResponseEntity，这个对象是从响应体中<br>映射得到的</p>
+</li>
+<li><p>execute() </p>
+</li>
+</ol>
+<p>​    在URL上执行特定的HTTP方法，返回一个从响应体映射得到的对象</p>
+<ol start="4">
+<li><p>getForEntity() </p>
+<p>发送一个HTTP GET请求，返回的ResponseEntity包含了响应体所映射成的对象</p>
+</li>
+<li><p>getForObject() </p>
+<p>发送一个HTTP GET请求，返回的请求体将映射为一个对象</p>
+</li>
+<li><p>postForEntity() </p>
+<p>POST 数据到一个URL，返回包含一个对象的ResponseEntity，这个对象是从响应体中映射得<br>到的</p>
+</li>
+<li><p>postForObject() </p>
+<p>POST 数据到一个URL，返回根据响应体匹配形成的对象</p>
+</li>
+<li><p>headForHeaders() </p>
+<p>发送HTTP HEAD请求，返回包含特定资源URL的HTTP头</p>
+</li>
+<li><p>optionsForAllow() </p>
+<p>发送HTTP OPTIONS请求，返回对特定URL的Allow头信息</p>
+</li>
+<li><p>postForLocation() </p>
+<p>POST 数据到一个URL，返回新创建资源的URL</p>
+</li>
+<li><p>put() </p>
+<p>PUT 资源到特定的URL</p>
+</li>
+</ol>
+<p><strong>实际上,由于Post 操作的非<a href="理解HTTP幂等性">幂等性</a>,它几乎可以代替其他的CRUD操作.</strong></p>
+<h1 id="Get请求"><a href="#Get请求" class="headerlink" title="Get请求"></a>Get请求</h1><p><img src="/2019/01/07/详解RestTemplate操作/1.png" alt=""></p>
+<p>RestTemplate 的get方法有以上几个,可以分为两类: getForEntity() 和 getForObject()</p>
+<p>首先看 getForEntity() 的返回值类型 ResponseEntity</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">T</span>&gt;</span> ResponseEntity<span class="tag">&lt;<span class="name">T</span>&gt;</span> getForEntity()</span><br></pre></td></tr></table></figure>
+<p>看一下 ResponseEntity 的文档描述:</p>
+<p><img src="/2019/01/07/详解RestTemplate操作/2.png" alt=""></p>
+<p>可以看到 它继承了HttpEntity. 封装了返回的响应信息,包括 响应状态,响应头 和 响应体.</p>
+<h2 id="实录"><a href="#实录" class="headerlink" title="实录"></a>实录</h2><h3 id="模拟Rest服务"><a href="#模拟Rest服务" class="headerlink" title="模拟Rest服务"></a>模拟Rest服务</h3><p>在测试之前我们首先 创建一个Rest服务,模拟提供Rest数据,这里给出Controller层代码,具体可以查看源码,文章最后会给出:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(value = <span class="meta-string">"getAll"</span>)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;UserEntity&gt; getUser() &#123;</span><br><span class="line">        List&lt;UserEntity&gt; list = userService.getAll();</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(<span class="meta-string">"get/&#123;id&#125;"</span>)</span></span><br><span class="line">    <span class="keyword">public</span> UserEntity getById(<span class="meta">@PathVariable(name = <span class="meta-string">"id"</span>)</span> String id) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> userService.getById(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(value = <span class="meta-string">"save"</span>)</span></span><br><span class="line">    <span class="keyword">public</span> String save(UserEntity userEntity) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"保存成功"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(value = <span class="meta-string">"saveByType/&#123;type&#125;"</span>)</span></span><br><span class="line">    <span class="keyword">public</span> String saveByType(UserEntity userEntity,<span class="meta">@PathVariable(<span class="meta-string">"type"</span>)</span>String type) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"保存成功,type="</span>+type;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="测试-getForEntity"><a href="#测试-getForEntity" class="headerlink" title="测试: getForEntity"></a>测试: getForEntity</h3><ol>
+<li>无参数的 getForEntity 方法</li>
+</ol>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(<span class="string">"getForEntity"</span>)</span><br><span class="line">   public <span class="keyword">List</span>&lt;UserEntity&gt; getAll2() &#123;</span><br><span class="line">       ResponseEntity&lt;<span class="keyword">List</span>&gt; responseEntity = restTemplate.getForEntity(<span class="string">"http://localhost/getAll"</span>, <span class="keyword">List</span>.<span class="keyword">class</span>);</span><br><span class="line">       HttpHeaders headers = responseEntity.getHeaders();</span><br><span class="line">       HttpStatus statusCode = responseEntity.getStatusCode();</span><br><span class="line">       int code = statusCode.value();</span><br><span class="line"></span><br><span class="line">       <span class="keyword">List</span>&lt;UserEntity&gt; <span class="keyword">list</span> = responseEntity.getBody();</span><br><span class="line"></span><br><span class="line">       System.<span class="keyword">out</span>.println(<span class="keyword">list</span>.<span class="keyword">toString</span>());</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">list</span>;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>有参数的 getForEntity 请求,参数列表,可以使用 {} 进行url路径占位符</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//有参数的 getForEntity 请求,参数列表</span></span><br><span class="line">    <span class="meta">@RequestMapping(<span class="meta-string">"getForEntity/&#123;id&#125;"</span>)</span></span><br><span class="line">    <span class="keyword">public</span> UserEntity getById2(<span class="meta">@PathVariable(name = <span class="meta-string">"id"</span>)</span> String id) &#123;</span><br><span class="line"></span><br><span class="line">        ResponseEntity&lt;UserEntity&gt; responseEntity = restTemplate.getForEntity(<span class="string">"http://localhost/get/&#123;id&#125;"</span>, UserEntity.<span class="keyword">class</span>, id);</span><br><span class="line">        UserEntity userEntity = responseEntity.getBody();</span><br><span class="line">        <span class="keyword">return</span> userEntity;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>有参数的 get 请求,使用map封装参数</p>
+<p> //有参数的 get 请求,使用map封装参数<br> @RequestMapping(“getForEntity/{id}”)<br> public UserEntity getById4(@PathVariable(name = “id”) String id) {</p>
+<pre><code>HashMap&lt;String, String&gt; map = new HashMap&lt;&gt;();
+map.put(&quot;id&quot;,id);
+
+ResponseEntity&lt;UserEntity&gt; responseEntity = restTemplate.getForEntity(&quot;http://localhost/get/{id}&quot;, UserEntity.class, map);
+UserEntity userEntity = responseEntity.getBody();
+
+return userEntity;
+</code></pre><p> }</p>
+</li>
+</ol>
+<p>通过断点调试我们看下 返回的 responseEntity 的信息如图:</p>
+<p><img src="/2019/01/07/详解RestTemplate操作/3.png" alt=""></p>
+<p>因此我们可以获取Http请求的全部信息.</p>
+<p>但是,通常情况下我们并不想要Http请求的全部信息,只需要相应体即可.对于这种情况,RestTemplate提供了 getForObject() 方法用来只获取 响应体信息.<br>getForObject 和 getForEntity 用法几乎相同,指示返回值返回的是 响应体,省去了我们 再去 getBody() .</p>
+<h3 id="测试-getForObject"><a href="#测试-getForObject" class="headerlink" title="测试: getForObject"></a>测试: getForObject</h3><ol>
+<li>无参数的 getForObject 请求</li>
+</ol>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//无参数的 getForObject 请求</span></span><br><span class="line">   @RequestMapping(<span class="string">"getAll2"</span>)</span><br><span class="line">   public <span class="keyword">List</span>&lt;UserEntity&gt; getAll() &#123;</span><br><span class="line">       <span class="keyword">List</span>&lt;UserEntity&gt; <span class="keyword">list</span> = restTemplate.getForObject(<span class="string">"http://localhost/getAll"</span>, <span class="keyword">List</span>.<span class="keyword">class</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       System.<span class="keyword">out</span>.println(<span class="keyword">list</span>.<span class="keyword">toString</span>());</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">list</span>;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>有参数的 getForObject 请求,使用参数列表</p>
+<p> //有参数的 getForObject 请求<br> @RequestMapping(“get2/{id}”)<br> public UserEntity getById(@PathVariable(name = “id”) String id) {</p>
+<pre><code>UserEntity userEntity = restTemplate.getForObject(&quot;http://localhost/get/{id}&quot;, UserEntity.class, id);
+
+return userEntity;
+</code></pre><p> }</p>
+</li>
+<li><p>有参数的 get 请求,使用map封装请求参数</p>
+<p> //有参数的 get 请求,使用map封装请求参数<br> @RequestMapping(“get3/{id}”)<br> public UserEntity getById3(@PathVariable(name = “id”) String id) {</p>
+<pre><code>HashMap&lt;String, String&gt; map = new HashMap&lt;&gt;();
+map.put(&quot;id&quot;,id);
+
+UserEntity userEntity = restTemplate.getForObject(&quot;http://localhost/get/{id}&quot;, UserEntity.class, map);
+
+return userEntity;
+</code></pre><p> }</p>
+</li>
+</ol>
+<h1 id="Post请求"><a href="#Post请求" class="headerlink" title="Post请求"></a>Post请求</h1><p>了解了get请求后,Post请求就变得很简单了,我们可以看到post有如下方法:</p>
+<h2 id="实录-1"><a href="#实录-1" class="headerlink" title="实录"></a>实录</h2><p>###　测试: postForEntity</p>
+<p>post 请求,保存 UserEntity 对像</p>
+<pre><code>//post 请求,提交 UserEntity 对像
+
+@RequestMapping(&quot;saveUser&quot;)
+public String save(UserEntity userEntity) {
+
+    ResponseEntity&lt;String&gt; responseEntity = restTemplate.postForEntity(&quot;http://localhost/save&quot;, userEntity, String.class);
+    String body = responseEntity.getBody();
+
+    return body;
+
+}
+</code></pre><p>我们再次断点调试,查看 responseEntity 中的信息:</p>
+<p><img src="/2019/01/07/详解RestTemplate操作/4.png" alt=""></p>
+<ol>
+<li>有参数的 postForEntity 请求</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有参数的 postForEntity 请求</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"saveUserByType/&#123;type&#125;"</span>)</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">String</span> save2(UserEntity userEntity,<span class="meta">@PathVariable</span>(<span class="string">"type"</span>)<span class="built_in">String</span> <span class="keyword">type</span>) &#123;</span><br><span class="line">     ResponseEntity&lt;<span class="built_in">String</span>&gt; responseEntity = restTemplate.postForEntity(<span class="string">"http://localhost/saveByType/&#123;type&#125;"</span>, userEntity, <span class="built_in">String</span>.class, <span class="keyword">type</span>);</span><br><span class="line">    <span class="built_in">String</span> body = responseEntity.getBody();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> body;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>有参数的postForEntity请求，使用map封装</li>
+</ol>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有参数的 postForEntity 请求,使用map封装</span></span><br><span class="line">@RequestMapping(<span class="string">"saveUserByType2/&#123;type&#125;"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">String</span> save3(UserEntity userEntity,@PathVariable(<span class="string">"type"</span>)<span class="built_in">String</span> <span class="keyword">type</span>) &#123;</span><br><span class="line">    HashMap&lt;<span class="built_in">String</span>, <span class="built_in">String</span>&gt; <span class="built_in">map</span> = <span class="literal">new</span> HashMap&lt;&gt;();</span><br><span class="line">     <span class="built_in">map</span>.put(<span class="string">"type"</span>, <span class="keyword">type</span>);</span><br><span class="line">      ResponseEntity&lt;<span class="built_in">String</span>&gt; responseEntity = restTemplate.postForEntity(<span class="string">"http://localhost/saveByType/&#123;type&#125;"</span>, userEntity, <span class="built_in">String</span>.class,<span class="built_in">map</span>);</span><br><span class="line">    <span class="built_in">String</span> body = responseEntity.getBody();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> body;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们浏览器访问: <a href="mailto:localhost/saveUserByType/120?username=itguang&amp;password=123456&amp;age=20&amp;email=123@123.com" target="_blank" rel="noopener">localhost/saveUserByType/120?username=itguang&amp;password=123456&amp;age=20&amp;email=123@123.com</a></p>
+<p>就会返回: 保存成功,type=120</p>
+<p>对与其它请求方式,由于不常使用,所以这里就不再讲述.</p>
+<p>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+
+      
+    </div>
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="漠 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    漠
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://it233.github.io/2019/01/07/详解RestTemplate操作/" title="详解RestTemplate操作">https://it233.github.io/2019/01/07/详解RestTemplate操作/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/it233.github.io/2019/01/04/java后台访问接口restTemplate方式GET访问入参数组的问题/" rel="next" title="java后台访问接口restTemplate方式GET访问入参数组的问题">
+                <i class="fa fa-chevron-left"></i> java后台访问接口restTemplate方式GET访问入参数组的问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/it233.github.io/2019/01/07/理解HTTP幂等性/" rel="prev" title="理解HTTP幂等性">
+                理解HTTP幂等性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/it233.github.io/images/user.jpg" alt="漠">
+            
+              <p class="site-author-name" itemprop="name">漠</p>
+              <p class="site-description motion-element" itemprop="description">所见之事 所感之物</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/it233.github.io/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/it233.github.io/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/it233.github.io/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/it233.github.io/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#详解-RestTemplate-操作"><span class="nav-text">详解 RestTemplate 操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#REST的基础知识"><span class="nav-text">REST的基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-中如何使用Rest资源"><span class="nav-text">Spring 中如何使用Rest资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Get请求"><span class="nav-text">Get请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实录"><span class="nav-text">实录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟Rest服务"><span class="nav-text">模拟Rest服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试-getForEntity"><span class="nav-text">测试: getForEntity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试-getForObject"><span class="nav-text">测试: getForObject</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Post请求"><span class="nav-text">Post请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实录-1"><span class="nav-text">实录</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright" style="display:inline-block;text-align:right;"> &copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">漠</span>
+
+  
+  
+<!-- <div class="powered-by" style="display:inline-block;text-align:right;min-width:200px;width:50%;">
+  <div >
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_pv">访客 : <span id="busuanzi_value_site_pv"></span>
+  </div>
+<div>
+</div> -->
+
+
+
+</div>
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/it233.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/it233.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/it233.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/it233.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/it233.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/it233.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/it233.github.io/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

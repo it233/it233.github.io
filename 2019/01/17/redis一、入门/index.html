@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="学习,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,26 @@
 
 
 
-<meta name="description" content="​    之前有说过jpa不实用实体类，那是某种特殊情况的时候的需要 ​    而大多数的时候，我们后端代码还是需要有与数据库对应的实体类的 ​    这样方便后端进行管理数据，而且更易于使用jpa框架 这次废话不多说，毕竟时间不多，简单做一些记录，反正对于这个框架还不太熟悉！有机会再来好好研究一番 下面直接说出如何去写，原理，实验什么的就先免了 实体类123456789101112131415@">
-<meta name="keywords" content="学习">
+<meta name="description" content="前言redis个人使用学习记录，有些问题碰到了以及研究到的都会记录下来。由于是个人的记录，一切以个人实际使用为基础，相对的可能会有很多问题 一、简介1、介绍Redis：REmote DIctionary Server ，原意翻译为：远程词典服务器 由上能够知道，Redis像词典那样来存储数据的一个存储系统 Redis ：是一个由Salvatore Sanfilippo写的key-value存储系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jpa自动映射java实体类与数据库表">
-<meta property="og:url" content="https://it233.github.io/2018/11/28/jpa自动映射java实体类与数据库表/index.html">
+<meta property="og:title" content="redis一、入门">
+<meta property="og:url" content="https://it233.github.io/2019/01/17/redis一、入门/index.html">
 <meta property="og:site_name" content="浮梦之殇">
-<meta property="og:description" content="​    之前有说过jpa不实用实体类，那是某种特殊情况的时候的需要 ​    而大多数的时候，我们后端代码还是需要有与数据库对应的实体类的 ​    这样方便后端进行管理数据，而且更易于使用jpa框架 这次废话不多说，毕竟时间不多，简单做一些记录，反正对于这个框架还不太熟悉！有机会再来好好研究一番 下面直接说出如何去写，原理，实验什么的就先免了 实体类123456789101112131415@">
+<meta property="og:description" content="前言redis个人使用学习记录，有些问题碰到了以及研究到的都会记录下来。由于是个人的记录，一切以个人实际使用为基础，相对的可能会有很多问题 一、简介1、介绍Redis：REmote DIctionary Server ，原意翻译为：远程词典服务器 由上能够知道，Redis像词典那样来存储数据的一个存储系统 Redis ：是一个由Salvatore Sanfilippo写的key-value存储系统">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-28T07:42:55.567Z">
+<meta property="og:image" content="https://it233.github.io/2019/01/17/redis一、入门/1.png">
+<meta property="og:image" content="https://it233.github.io/2019/01/17/redis一、入门/2.png">
+<meta property="og:image" content="https://it233.github.io/2019/01/17/redis一、入门/3.png">
+<meta property="og:image" content="https://it233.github.io/2019/01/17/redis一、入门/4.png">
+<meta property="og:image" content="https://it233.github.io/2019/01/17/redis一、入门/5.png">
+<meta property="og:image" content="https://it233.github.io/2019/01/17/redis一、入门/6.png">
+<meta property="og:image" content="https://it233.github.io/2019/01/17/redis一、入门/7.png">
+<meta property="og:image" content="https://it233.github.io/2019/01/17/redis一、入门/8.png">
+<meta property="og:updated_time" content="2019-01-18T10:02:22.128Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jpa自动映射java实体类与数据库表">
-<meta name="twitter:description" content="​    之前有说过jpa不实用实体类，那是某种特殊情况的时候的需要 ​    而大多数的时候，我们后端代码还是需要有与数据库对应的实体类的 ​    这样方便后端进行管理数据，而且更易于使用jpa框架 这次废话不多说，毕竟时间不多，简单做一些记录，反正对于这个框架还不太熟悉！有机会再来好好研究一番 下面直接说出如何去写，原理，实验什么的就先免了 实体类123456789101112131415@">
+<meta name="twitter:title" content="redis一、入门">
+<meta name="twitter:description" content="前言redis个人使用学习记录，有些问题碰到了以及研究到的都会记录下来。由于是个人的记录，一切以个人实际使用为基础，相对的可能会有很多问题 一、简介1、介绍Redis：REmote DIctionary Server ，原意翻译为：远程词典服务器 由上能够知道，Redis像词典那样来存储数据的一个存储系统 Redis ：是一个由Salvatore Sanfilippo写的key-value存储系统">
+<meta name="twitter:image" content="https://it233.github.io/2019/01/17/redis一、入门/1.png">
 
 
 
@@ -120,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://it233.github.io/2018/11/28/jpa自动映射java实体类与数据库表/">
+  <link rel="canonical" href="https://it233.github.io/2019/01/17/redis一、入门/">
 
 
 
 
 
-  <title>jpa自动映射java实体类与数据库表 | 浮梦之殇</title>
+  <title>redis一、入门 | 浮梦之殇</title>
   
 
 
@@ -299,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://it233.github.io/it233.github.io/2018/11/28/jpa自动映射java实体类与数据库表/">
+    <link itemprop="mainEntityOfPage" href="https://it233.github.io/it233.github.io/2019/01/17/redis一、入门/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="漠">
@@ -316,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jpa自动映射java实体类与数据库表</h1>
+          <h1 class="post-title" itemprop="name headline">redis一、入门</h1>
         
 
         <div class="post-meta">
@@ -328,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T14:29:10+08:00">
-                2018-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-17T14:29:48+08:00">
+                2019-01-17
               </time>
             
 
@@ -344,8 +352,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-28T15:42:55+08:00">
-                2018-11-28
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-18T18:02:22+08:00">
+                2019-01-18
               </time>
             
           </span>
@@ -363,30 +371,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/it233.github.io/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/it233.github.io/categories/java/框架/" itemprop="url" rel="index">
-                    <span itemprop="name">框架</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/it233.github.io/categories/java/框架/JPA/" itemprop="url" rel="index">
-                    <span itemprop="name">JPA</span>
+                  <a href="/it233.github.io/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -427,47 +413,134 @@
       
 
       
-        <p>​    之前有说过jpa不实用实体类，那是某种特殊情况的时候的需要</p>
-<p>​    而大多数的时候，我们后端代码还是需要有与数据库对应的实体类的</p>
-<p>​    这样方便后端进行管理数据，而且更易于使用jpa框架</p>
-<p>这次废话不多说，毕竟时间不多，简单做一些记录，反正对于这个框架还不太熟悉！有机会再来好好研究一番</p>
-<p>下面直接说出如何去写，原理，实验什么的就先免了</p>
-<h3 id="实体类"><a href="#实体类" class="headerlink" title="实体类"></a>实体类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"ssprt_config"</span>,uniqueConstraints = &#123;<span class="meta">@UniqueConstraint</span>(name = <span class="string">"UK_SSPRTCONFIG_TYPE"</span>,columnNames = <span class="string">"type"</span>)&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SsprtConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"type"</span>,length = <span class="number">50</span>)</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"value"</span>,length = <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="简单解释："><a href="#简单解释：" class="headerlink" title="简单解释："></a>简单解释：</h3><ol>
-<li><p>@Data：不用说了，就是getter、setter方法</p>
-</li>
-<li><p>@NoArgsConstructor：无参构造</p>
-</li>
-<li><p>@AllArgsConstructor：所有参数的构造</p>
-<ol>
-<li>注意2和3两个注解，最好加上，因为我们利用jpa查询数据的时候，查完数据通过构造进行给实体类赋值，没有的话会报有关构造函数的错误</li>
-</ol>
-</li>
-<li><p>@Builder：builder创建对象，利用静态方法builder来创建对象，而不用new，提供链式setter赋值，方便快捷</p>
-</li>
-<li><p>@Entity：标注这是一个实体类，是一个与数据库映射的实体类</p>
-</li>
-<li><p>@Table：标注这个类所对应的数据库中的表名，同时，如果数据库中没有与之对应的表，会自动生成该表与之对应（这个要在配置文件中配置策略，不细说了，因为我也只是知道，并没有研究）</p>
-<p>name：不是必须的，如果没有，那么使用默认的该实体类的短类名。</p>
-<p>uniqueConstraints：唯一键，指定某个列columnNames</p>
-</li>
-<li><p>@Id：标注为主键</p>
-</li>
-<li><p>@GeneratedValue：主键生成策略，</p>
-<ol>
-<li>TABLE：使用表保存id值              </li>
-<li>IDENTITY：identitycolumn               </li>
-<li>SEQUENCR ：sequence               </li>
-<li>AUTO：根据数据库的不同使用上面三个</li>
-</ol>
-</li>
-<li><p>@Column：生命该字段与数据库表字段的映射关系，</p>
-<ol>
-<li>name指表字段名，length指数据长度，注意数据类型使用封装类</li>
-</ol>
-</li>
-<li></li>
-</ol>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>redis个人使用学习记录，有些问题碰到了以及研究到的都会记录下来。由于是个人的记录，一切以个人实际使用为基础，相对的可能会有很多问题</p>
+<h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><h2 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h2><p>Redis：REmote DIctionary Server ，原意翻译为：远程词典服务器</p>
+<p>由上能够知道，Redis像词典那样来存储数据的一个存储系统</p>
+<p>Redis ：是一个由Salvatore Sanfilippo写的key-value存储系统 ，同时，Redis是完全开源免费的，遵守BSD协议，</p>
+<h2 id="2、特点"><a href="#2、特点" class="headerlink" title="2、特点"></a>2、特点</h2><p>Redis与其他key-value缓存茶品有以下特点：</p>
+<ul>
+<li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用</li>
+<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list、set、zset、hash等数据结构的存储</li>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+</ul>
+<h2 id="3、Redis的优势"><a href="#3、Redis的优势" class="headerlink" title="3、Redis的优势"></a>3、Redis的优势</h2><ul>
+<li>性能极高 -Redis能读的速度是110000次/s，写的速度是81000次/s</li>
+<li>丰富的数据类型</li>
+<li>原子 -Redis的所有操作都是原子性的，意思就是要么成功，要么失败完全不执行。多个操作也支持事务</li>
+<li>丰富的特性 -Redis还支持publish/subscribe，通知，key过期等等</li>
+</ul>
+<h2 id="4、Redis与其他key-value存储相比"><a href="#4、Redis与其他key-value存储相比" class="headerlink" title="4、Redis与其他key-value存储相比"></a>4、Redis与其他key-value存储相比</h2><ul>
+<li>Redis有着更为复杂的数据结构并且提供对他们的原子性操作，这是一个不同于其他数据库的进化路径。Redis的数据类型都是基于基本数据结构的同时对程序员透明，无需进行额外的抽象。 </li>
+<li>Redis运行在内存中但是可以持久化到磁盘，所以在对不同数据集进行高速读写时需要权衡内存，因为数据量不能大于硬件内存。在内存数据库方面的另一个优点是，相比在磁盘上相同的复杂的数据结构，在内存中操作起来非常简单，这样Redis可以做很多内部复杂性很强的事情。同时，在磁盘格式方面他们是紧凑的以追加的方式产生的，因为他们并不需要进行随机访问。 </li>
+</ul>
+<h1 id="二、下载和安装"><a href="#二、下载和安装" class="headerlink" title="二、下载和安装"></a>二、下载和安装</h1><h2 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h2><ul>
+<li>官网下载</li>
+</ul>
+<p>链接：<a href="https://redis.io/download" target="_blank" rel="noopener">https://redis.io/download</a></p>
+<p>官网可能会稍微有点慢</p>
+<ul>
+<li>gitHub下载</li>
+</ul>
+<p>链接：<a href="https://github.com/MicrosoftArchive/redis/releases" target="_blank" rel="noopener">https://github.com/MicrosoftArchive/redis/releases</a></p>
+<p>github中有各版本的.msi、.zip、以及源代码</p>
+<ul>
+<li>个人网盘</li>
+</ul>
+<p>链接：<a href="https://pan.baidu.com/s/1wFGKipN8bWjoPDShQZLR7g" target="_blank" rel="noopener">https://pan.baidu.com/s/1wFGKipN8bWjoPDShQZLR7g</a><br>提取码：0zmh </p>
+<p>在个人网盘中，也有自己使用的redis压缩包，是64位系统的。根据</p>
+<h2 id="2、安装"><a href="#2、安装" class="headerlink" title="2、安装"></a>2、安装</h2><p>在下载好压缩包之后，在C盘(个人放在了C盘，其他盘还没试)创建一个文件夹redis</p>
+<p>然后将压缩包解压到这个文件夹中，解压后的文件如下：</p>
+<p><img src="/2019/01/17/redis一、入门/1.png" alt=""></p>
+<p>使用压缩包版的redis，安装其实很简单，就是将压缩包解压之后就完成了安装的步骤。接下来就是启动使用了</p>
+<h1 id="三、启动"><a href="#三、启动" class="headerlink" title="三、启动"></a>三、启动</h1><h3 id="1、启动服务"><a href="#1、启动服务" class="headerlink" title="1、启动服务"></a>1、启动服务</h3><p>window+r打开cmd命令窗口，切换到redis解压到的目录，我的是c:\redis</p>
+<p>然后执行启动服务命令：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-<span class="keyword">server</span>.exe</span><br></pre></td></tr></table></figure>
+<p>执行完该命令之后，redis服务就启动了</p>
+<p><img src="/2019/01/17/redis一、入门/2.png" alt=""></p>
+<p>不过你会发现这样一段话</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Warning: no <span class="built_in">config</span> file specified, <span class="keyword">using</span> the <span class="built_in">default</span> <span class="built_in">config</span></span><br></pre></td></tr></table></figure>
+<p>这里就是说我们启动服务的时候没有指定配置文件，所以使用了默认的配置文件</p>
+<p>这里说明：</p>
+<p>reids默认的配置文件是</p>
+<p>redis.windows-service.conf文件</p>
+<p>所以如果启动的时候没有指定默认配置文件的话，想要改变redis的配置，就要修改redis.windows-service.conf文件</p>
+<h3 id="2、指定配置文件"><a href="#2、指定配置文件" class="headerlink" title="2、指定配置文件"></a>2、指定配置文件</h3><p>那么我们可以用下面这个命令：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server<span class="selector-class">.exe</span> redis<span class="selector-class">.windows</span><span class="selector-class">.conf</span></span><br></pre></td></tr></table></figure>
+<p>这个命令指定了配置文件，就是redis文件夹中的redis.windows.conf配置文件。</p>
+<p>关于配置文件的介绍这里就不说了</p>
+<p>这里穿插一下，停止服务方法。</p>
+<p>打开一个新的cmd窗口，然后cd c:\redis进入redis目录执行命令：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h localhost -<span class="selector-tag">p</span> <span class="number">6379</span> shutdown</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/17/redis一、入门/3.png" alt=""></p>
+<p>因为在启动服务之后，之前的cmd看不到输入，所以就打开新的cmd来停止redis服务。</p>
+<p>服务停止之后，就如上图。</p>
+<p>当然，我们这里使用压缩包，就是源码方式安装的redis，其实我们只要关闭之前启动服务的cmd窗口，也是等于关闭了服务，这里只是介绍一下命令，我所知道的方式尽量都会展示出来。</p>
+<p>然后我们关闭之前的cmd，用新cmd窗口来操作</p>
+<p>然后我们就用指定配置文件的方式启动服务</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server<span class="selector-class">.exe</span> redis<span class="selector-class">.windows</span><span class="selector-class">.conf</span></span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="/2019/01/17/redis一、入门/4.png" alt=""></p>
+<p>看到这次没有提示说使用默认配置了</p>
+<h3 id="3、疑问和思考"><a href="#3、疑问和思考" class="headerlink" title="3、疑问和思考"></a>3、疑问和思考</h3><ul>
+<li>每次都要通过命令来指定配置文件是不是感觉很厌烦？每次启动服务都要指定配置文件感觉很没必要？</li>
+<li>如果在项目服务器上，我们集成redis之后，难道要一直开着cmd来维持redis服务？这明显不可能的事情</li>
+</ul>
+<h3 id="4、服务安装"><a href="#4、服务安装" class="headerlink" title="4、服务安装"></a>4、服务安装</h3><p>对于第三点的两个问题，我们有这么一种解决方法，安装服务，就是将redis安装到windows的服务下。</p>
+<p>这里在官方文档中也有详细介绍，下面会提出来</p>
+<p>闲话不多说，直接上操作：</p>
+<h4 id="1、安装服务"><a href="#1、安装服务" class="headerlink" title="1、安装服务"></a>1、安装服务</h4><blockquote>
+<h2 id="Installing-the-Service"><a href="#Installing-the-Service" class="headerlink" title="Installing the Service"></a>Installing the Service</h2><p><em>–service-install</em></p>
+<p>This must be the first argument on the redis-server command line. Arguments after this are passed in the order they occur to Redis when the service is launched. The service will be configured as Autostart and will be launched as “NT AUTHORITY\NetworkService”. Upon successful installation a success message will be displayed and Redis will exit.</p>
+<p>This command does not start the service.</p>
+<p>For instance:</p>
+<p>redis-server –service-install redis.windows-service.conf –loglevel verbose</p>
+</blockquote>
+<p>其他不解释，这里就说一下这条命令</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server --service-install redis<span class="selector-class">.windows-service</span><span class="selector-class">.conf</span> --loglevel verbose</span><br></pre></td></tr></table></figure>
+<p>这里redis.windows-service.conf指的就是我们要给该服务的配置文件，用windows-service.conf或者windows.conf都行</p>
+<p>执行结果：</p>
+<p><img src="/2019/01/17/redis一、入门/5.png" alt=""></p>
+<p>这个时候我们打开服务，能够找到redis服务</p>
+<p><img src="/2019/01/17/redis一、入门/6.png" alt=""></p>
+<p>通过右击查看属性，能够看到这样的信息：</p>
+<p><img src="/2019/01/17/redis一、入门/7.png" alt=""></p>
+<p>看到可执行文件的路径中包括了该服务的配置文件。之后的操作就不介绍了，直接启动就可以了</p>
+<h4 id="2、卸载服务"><a href="#2、卸载服务" class="headerlink" title="2、卸载服务"></a>2、卸载服务</h4><blockquote>
+<h2 id="Uninstalling-the-Service"><a href="#Uninstalling-the-Service" class="headerlink" title="Uninstalling the Service"></a>Uninstalling the Service</h2><p><em>–service-uninstall</em></p>
+<p>This will remove the Redis service configuration information from the registry. Upon successful uninstallation a success message will be displayed and Redis will exit.</p>
+<p>This does command not stop the service.</p>
+<p>For instance:</p>
+<p>redis-server –service-uninstall</p>
+</blockquote>
+<p>命令：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server <span class="comment">--service-uninstall</span></span><br></pre></td></tr></table></figure>
+<p>这里不难理解，只要执行这条命令就能够卸载服务</p>
+<p>这里值得注意的是：这条命令仅仅是卸载服务的命令，不能够停止服务，执行完这条命令之后，redis会退出</p>
+<p>所以建议：</p>
+<p>如果redis服务正在运行并且处于连接服务的状态，先断开连接，然后停掉服务，再卸载，虽然我尝试过直接卸载没有出现什么问题，但是为了以防万一</p>
+<h4 id="3、开启服务"><a href="#3、开启服务" class="headerlink" title="3、开启服务"></a>3、开启服务</h4><p>比较简单，没什么要说的，直接贴命令就ok、</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server <span class="comment">--service-start</span></span><br></pre></td></tr></table></figure>
+<h4 id="4、停止服务"><a href="#4、停止服务" class="headerlink" title="4、停止服务"></a>4、停止服务</h4><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-<span class="built_in">server</span> --service-<span class="keyword">stop</span></span><br></pre></td></tr></table></figure>
+<h4 id="5、命名服务"><a href="#5、命名服务" class="headerlink" title="5、命名服务"></a>5、命名服务</h4><blockquote>
+<h2 id="Naming-the-Service"><a href="#Naming-the-Service" class="headerlink" title="Naming the Service"></a>Naming the Service</h2><p><em>–service-name</em> <strong>name</strong></p>
+<p>This optional argument may be used with any of the preceding commands to set the name of the installed service. This argument should follow the service-install, service-start, service-stop or service-uninstall commands, and precede any arguments to be passed to Redis via the service-install command. </p>
+<p>The following would install and start three separate instances of Redis as a service:</p>
+<p>redis-server –service-install –service-name redisService1 –port 10001</p>
+<p>redis-server –service-start –service-name redisService1</p>
+<p>redis-server –service-install –service-name redisService2 –port 10002</p>
+<p>redis-server –service-start –service-name redisService2</p>
+<p>redis-server –service-install –service-name redisService3 –port 10003</p>
+<p>redis-server –service-start –service-name redisService3</p>
+</blockquote>
+<p>这种情况适用于需要多个服务的情况，命令就不贴了，都在上面</p>
+<h1 id="四、连接"><a href="#四、连接" class="headerlink" title="四、连接"></a>四、连接</h1><p>当我们打开redis服务之后，就可以进行连接Redis了</p>
+<p>很简单，依旧是cmd，目录还是redis，命令：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli<span class="selector-class">.exe</span> -h localhost -<span class="selector-tag">p</span> <span class="number">6379</span></span><br></pre></td></tr></table></figure>
+<p>-h：就是服务器的地址</p>
+<p>-p：是端口</p>
+<p>出现下面情况就是连接成功了</p>
+<p><img src="/2019/01/17/redis一、入门/8.png" alt=""></p>
+<p>入门篇就到这里了，这些都是个人从点滴中尝试过的。应该没有什么问题。至于知识全面与否，就真的没办法了，毕竟个人也在学习中，目前也是一个小白</p>
 
       
     </div>
@@ -520,7 +593,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://it233.github.io/2018/11/28/jpa自动映射java实体类与数据库表/" title="jpa自动映射java实体类与数据库表">https://it233.github.io/2018/11/28/jpa自动映射java实体类与数据库表/</a>
+    <a href="https://it233.github.io/2019/01/17/redis一、入门/" title="redis一、入门">https://it233.github.io/2019/01/17/redis一、入门/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -533,12 +606,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/it233.github.io/tags/学习/" rel="tag"># 学习</a>
-          
-        </div>
-      
 
       
       
@@ -548,8 +615,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/it233.github.io/2018/11/21/canvas-camera/" rel="next" title="canvas-camera">
-                <i class="fa fa-chevron-left"></i> canvas-camera
+              <a href="/it233.github.io/2019/01/07/理解HTTP幂等性/" rel="next" title="理解HTTP幂等性">
+                <i class="fa fa-chevron-left"></i> 理解HTTP幂等性
               </a>
             
           </div>
@@ -557,10 +624,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/it233.github.io/2018/11/29/java整型封装类Integer的比较/" rel="prev" title="java整型封装类Integer的比较">
-                java整型封装类Integer的比较 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -701,7 +764,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实体类"><span class="nav-text">实体类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单解释："><span class="nav-text">简单解释：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、简介"><span class="nav-text">一、简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、介绍"><span class="nav-text">1、介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、特点"><span class="nav-text">2、特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、Redis的优势"><span class="nav-text">3、Redis的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、Redis与其他key-value存储相比"><span class="nav-text">4、Redis与其他key-value存储相比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、下载和安装"><span class="nav-text">二、下载和安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、下载"><span class="nav-text">1、下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、安装"><span class="nav-text">2、安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、启动"><span class="nav-text">三、启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、启动服务"><span class="nav-text">1、启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、指定配置文件"><span class="nav-text">2、指定配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、疑问和思考"><span class="nav-text">3、疑问和思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、服务安装"><span class="nav-text">4、服务安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装服务"><span class="nav-text">1、安装服务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Installing-the-Service"><span class="nav-text">Installing the Service</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2、卸载服务"><span class="nav-text">2、卸载服务</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Uninstalling-the-Service"><span class="nav-text">Uninstalling the Service</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3、开启服务"><span class="nav-text">3、开启服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、停止服务"><span class="nav-text">4、停止服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、命名服务"><span class="nav-text">5、命名服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Naming-the-Service"><span class="nav-text">Naming the Service</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、连接"><span class="nav-text">四、连接</span></a></li></div>
             
 
           </div>
